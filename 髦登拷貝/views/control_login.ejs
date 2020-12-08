@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/control_login.css" />
+    <title>髦登(後台管理)</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+    <div>
+        <form action="controls/control_article">
+            <div class="loginform">
+                <h1>後台登入管理系統</h1>
+                <div id="item">
+                    <span>帳號</span> <input type="text" name="uName" /><br /><br />
+                    <span>密碼</span>
+                    <input type="password" name="psw" />
+                </div>
+                <input type="submit" id="chk_btn" value="確定" />
+            </div>
+        </form>
+    </div>
+    <%- include footer.ejs %>
+</body>
+
+</html>

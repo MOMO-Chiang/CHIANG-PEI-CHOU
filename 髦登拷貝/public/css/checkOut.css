@@ -1,0 +1,163 @@
+/* ver.11-28 */
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color5: #D3EDF9;
+    --color6: #d8705b;
+}
+
+@font-face {
+    font-family: "jf-openhuninn-1.1";
+    src: url(../font/jf-openhuninn-1.1.woff)format("woff"),
+         url(../font/jf-openhuninn-1.1.ttf)format("truetype"),
+         url(../font/jf-openhuninn-1.1.eot)format("embedded-opentype");
+}
+
+* {
+    font-family:"jf-openhuninn-1.1";
+    font-size: 16px;
+    color: var(--color4);
+}
+
+body {
+    width: 100vw;
+}
+
+.custom-container-width {
+    max-width: 1440px;
+}
+
+/* 訂購步驟 */
+.orderStep {
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid; */
+    margin: 20px 30px;
+    padding-left: 20px;
+    padding-top: 45px;
+    font-size: 22px;
+    color: var(--color1);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#itemBox {
+    position: relative;
+    width: 1000px;
+    /* height: 500px; */
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 30px;
+    margin: auto;
+
+}
+
+#totalText {
+    position: absolute;
+    right:0px;
+    bottom:15px; 
+}
+
+a>img {
+    object-fit: contain;
+ }
+
+.itemQty {
+    width: 100px;
+    display: flex;
+    border: 1px solid var(--color2);
+    border-radius: 5px;
+}
+
+.itemQty>button {
+    width: 30px;
+    height: 40px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: var(--color2);
+}
+
+.itemQty>input {
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.removeBtn {
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.removeBtn:focus {
+    outline: none;
+}
+
+#backToProduct {
+    width: 120px;
+    height: 36px;
+    margin:30px 10px;
+    border:1px solid var(--color4);
+    border-radius: 18px;
+    color: var(--color4);
+    background-color: white;
+    outline: none;
+}
+
+#backToProduct:hover {
+    color:white;
+    background-color: var(--color4);
+}
+
+#nextToCart2 {
+    width: 120px;
+    height: 36px;
+    margin:30px 10px;
+    border:1px solid var(--color6);
+    border-radius: 18px;
+    color: var(--color6);
+    background-color: white;
+    outline: none;
+}
+
+#nextToCart2:hover {
+    color:white;
+    background-color: var(--color6);
+}
+
+.noProduct{
+    margin:20px auto;
+    justify-content: center;
+    
+}
+
+.reminder {
+    position: relative;
+}
+
+.reminder>p {
+    position: absolute;
+    top: 80px;
+    left: 40px;
+    color: black;
+    font-size: 22px;
+}
+
+#remindChart {
+    width: 300px;
+    z-index: -1;
+}
+
+#remindCharacter {
+    width: 400px;
+
+}
+.itemName p{
+    font-size: 20px;
+}

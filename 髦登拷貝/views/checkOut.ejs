@@ -1,0 +1,230 @@
+<!-- ver.11-28 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜訂單明細</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/checkOut.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../css/sweetalert2.css">
+    
+    </head>
+<body>
+    <%- include header3.ejs %>
+    <div class="container custom-container-width">
+        <div class="row justify-content-center">
+            <div class="orderStep" style="background-image: url('../img/m_icon.svg');">1</div>
+            <svg height="10" width="60" style="margin-top: 75px;">
+                <line x1="0" y1="0" x2="60" y2="0" style="stroke:#647F68;stroke-width:10" />
+              </svg>
+            <div class="orderStep" style="background-image: url('../img/m_icon_no.svg'); color:#90AB8D;">2</div>
+            <svg height="10" width="60" style="margin-top: 75px;">
+                <line x1="0" y1="0" x2="60" y2="0" style="stroke:#647F68;stroke-width:10" />
+              </svg>
+            <div class="orderStep" style="background-image: url('../img/m_icon_no.svg'); color:#90AB8D;">3</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col- " id="itemBox">
+                <h4 style="text-align: center;">訂單明細</h4>
+                <ul id="cartList">
+                </ul> 
+                    <div id="totalText" class="row d-flex mt-4 justify-content-end totalBlock">
+                        <hr>
+                        <h4 class="mr-3">訂單總金額</h4>
+                        <h4 id="totalPrice" style="color: #d8705b; margin-right: 60px;"></h4>
+                    </div>   
+            </div> <!-- ..itembox -->
+        </div>
+        <div class="row justify-content-center">
+            <a href="/product">
+                <button id="backToProduct" >繼續購物</button>
+            </a>
+            <a href="#">
+                <button id="nextToCart2">前往結帳</button>
+            </a>
+        </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div> <!-- ..container -->
+    <%- include footer.ejs %>
+    <script>
+        
+            const showList = document.getElementById('cartList');
+            let cartList = JSON.parse(localStorage.getItem('cartList'));
+            // console.log(cartList[0].product.productID);
+            let htmlContent = '';
+            // var removeBtn = document.getElementsByClassName("removeBtn");
+            // console.log(removeBtn);
+            function showCart () {
+                if (cartList != null) {
+                $.ajax({
+                        type: "get",
+                        url:"checkOut"
+                    }).then(function(e) {
+                            $.each(cartList, function (key, item) {
+                                let unitPrice = parseInt(item.product.productPrice);
+                                let count = item.count;
+                                var subTotal = unitPrice * count;
+                                // console.log(key);
+
+                                htmlContent += `<div class="item d-flex justify-content-around align-items-center mb-5" data-num="${key}">
+                                <a href="product_detail_${item.product.productID}">
+                                    <img src="${item.product.productImg}" alt="" width="100px" height="100px" style="border: 1px solid #647F68;">
+                                </a>
+                                <div class="itemName col-3">
+                                    <p style="font-size:20px;">${item.product.productName}</p>
+                                    <p style="font-size:20px;">單價：NT$${item.product.productPrice}</p>
+                                </div>
+                                <div class="col-2" style="display:none">
+                                    <p class="itemPrice" style="color: #d8705b;">NT$${item.product.productPrice}</p>
+                                </div>
+                                <div class="itemQty">
+                                    <button class="deleteBtn">&minus;</button>
+                                    <input style="font-size:20px" class="product_qty" type="text" readonly="readonly" value="${item.count}">
+                                    <button style="font-size:20px" class="addBtn">&#43;</button>
+                                </div>
+                                <div class="col-2">
+                                    <p class="subTotal" style="color: #d8705b; font-size:20px">NT$${subTotal}</p>
+                                </div>
+                                <div class="col-">
+                                    <button class="removeBtn">
+                                        <img src="../img/delete.svg" alt="" width="30px" height="30px">
+                                    </button>
+                                </div>
+                            </div>`
+
+                                showList.innerHTML = htmlContent;
+
+                            }) //$.each
+
+                            document.getElementById("totalPrice").innerText = getTotalPrice();
+                            
+                            //減少數量
+                            $('.deleteBtn').click(function(e) {
+                                    var priceBox = e.target.parentElement.parentElement.querySelector('.itemPrice').innerText;
+                                    var price = parseInt(priceBox.replace("NT$", ""));
+                                    var qtyBox = e.target.nextElementSibling;
+                                    var qty = parseInt(qtyBox.value);
+                                    var index = e.target.parentElement.parentElement.dataset.num;
+                                    if (qty>0) {
+                                        if (qty==1) {
+                                            qty--;
+                                            qtyBox.value = 1;
+                                            cartList[index].count = 1;
+                                            localStorage.setItem('cartList', JSON.stringify(cartList)); 
+                                        } else {
+                                            qty--;
+                                            qtyBox.value = qty;
+                                            //更新storage數量
+                                            cartList[index].count = qty;
+                                            localStorage.setItem('cartList', JSON.stringify(cartList));
+                                            //小計
+                                            let subTotalPrice = price * qty;
+                                            e.target.parentElement.parentElement.querySelector('.subTotal').innerText = 'NT$' + subTotalPrice;
+                                        }
+                                        document.getElementById("totalPrice").innerText = getTotalPrice();
+                                    }
+                                    
+                            });
+
+                            //增加數量
+                            $(".addBtn").click(function(e){
+                                    var priceBox = e.target.parentElement.parentElement.querySelector('.itemPrice').innerText;
+                                    var price = parseInt(priceBox.replace("NT$", ""));
+                                    // console.log(price);
+                                    var qtyBox = e.target.previousElementSibling;
+                                    // console.log(e.target.previousElementSibling);
+                                    var qty = parseInt(qtyBox.value);
+                                    qty++;
+                                    qtyBox.value = qty;
+                                    //更新storage數量
+                                    var index = e.target.parentElement.parentElement.dataset.num;
+                                    cartList[index].count = qty;
+                                    // console.log(cartList[index].count);
+                                    localStorage.setItem('cartList', JSON.stringify(cartList));
+                                    //小計
+                                    let subTotalPrice = price * qty;
+                                    e.target.parentElement.parentElement.querySelector('.subTotal').innerText = 'NT$' + subTotalPrice;
+                                    document.getElementById("totalPrice").innerText = getTotalPrice();
+                            
+                                
+                            });
+
+                            //計算總金額
+                            function getTotalPrice () {
+                                let total = 0;
+                                var subTotalList = document.getElementsByClassName("subTotal");
+                                // console.log(subTotalList);
+                                for (var i=0; i<subTotalList.length; i++) {
+                                    var subTotal = subTotalList[i].innerText.replace("NT$", "");
+                                    var subTotalPrice = parseInt(subTotal);
+                                    total += subTotalPrice;
+                                    //將最後總金額存到 storage
+                                    localStorage.setItem('total', total);
+                                }
+                                return 'NT$'+ total;
+                                
+                            };
+
+                            //移除商品
+                            $('.removeBtn').click(function(e){
+                                var index = e.target.parentElement.parentElement.parentElement.dataset.num;
+                                // console.log(e.target.parentElement.parentElement.parentElement);
+                                cartList.splice(index,1);
+                                localStorage.setItem('cartList', JSON.stringify(cartList));
+                                window.location.reload();
+                                if (cartList.length == 0) {
+                                    localStorage.clear();
+                                }
+                            });
+                                
+                    }); //ajax.then
+                
+            } else {
+                showList.innerHTML = `<div class=" d-flex noProduct">
+                <img id="remindCharacter" src="../img/noProductInCart.svg" alt="">
+                <div class="reminder">
+                    <p>購物車裡目前沒有商品喔!</p>
+                    <img id="remindChart" src="../img/remindChart.svg" alt="">
+                </div>
+                </div>`;
+                $('h4').css('display', 'none');
+                $('#nextToCart2').css('display', 'none');
+            }
+        }
+
+            showCart();
+        
+           $('#nextToCart2').on('click', function(){
+                $.ajax({
+                    type: "post",
+                    url: "/product/checkOutAccess"
+                }).then(function (msg) {
+                    if (msg == "請先登入會員") {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'info',
+                            title: `<h3 style=color:#647f68>${msg}</h3>`,
+                            showConfirmButton: true,
+                            background: '#e2e1d1',
+                            footer: '<a href=../member_login style=color:#647f68;>前往登入/註冊頁</a>'
+                    });
+                } else {
+                    location.href = 'orderInfo';
+                }
+            })//then
+           }); 
+            
+       
+    </script>
+</body>
+</html>

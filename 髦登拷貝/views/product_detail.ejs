@@ -1,0 +1,188 @@
+<!-- //ver.12-01 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品資訊</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/product_detail.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../css/sweetalert2.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+    </head>
+<body>
+    <%- include header3.ejs %>
+    <div class="container custom-container-width mt-3">
+        <div class="row" style="margin-left: 120px;">
+            <a id="backToProduct" href="../product" style="text-decoration:none;">
+                <img src="../img/narrow.svg" alt="" width="25px" height="25px">&nbsp;
+            </a>
+            <span style="font-size: large;">查看更多商品</span>
+        </div>
+        <div class="row mt-3">
+            <div class="col-6" style="text-align: center;">
+            <% data1.forEach((item, index) => { %>    
+                <img id="mainImg" class="preImg" src="../img/products/<%= item.product_img %>" alt="">
+                <br>
+                <img class="preImg" src="../img/products/<%= item.product_img %>" alt="" onclick="showImg(this);">
+            <% }) %>
+            <% data2.forEach((item, index) => { %> 
+                <img class="preImg" src="../img/products/<%= item.product_img %>" alt="" onclick="showImg(this);">
+            <% }) %>
+            <% data3.forEach((item, index) => { %>
+                <img class="preImg" src="../img/products/<%= item.product_img %>" alt="" onclick="showImg(this);">
+            <% }) %>   
+            </div>
+            
+            <% data4.forEach((item, index) => { %>
+            <div class="col-6">
+                <div id="productID" style="display: block;"><%= item.product_id %></div>
+                <div id="product_category" style="display: none;"><%= item.category_id %></div>  
+                <p id="productName" style="font-size: 30px; color: #647F68;"><%= item.product_name %></p>
+                
+                <p id="productPrice" style="font-size: 30px;color: #d8705b; margin-top: 30px;">NT$<%= item.unitprice %></p>
+                <p style="display: none;">庫存：<%= item.stock %></p>
+                <p style="margin-top: 30px;">數量</p>
+                <div class="product_qty">
+                    <button id="deleteBtn">&minus;</button>
+                    <input id="productQty" type="text" style="font-size:18px;" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')" value="1">
+                    <button id="addBtn">+</button>
+                </div>
+                <div class="row" >
+                    <button id="addToCart">
+                        <img src="../img/shopping-cart-w.svg" alt="" width="18px" height="18px">
+                        <span style="color: white;">加入購物車</span>
+                    </button>
+                    <div class="col" id="favorite">
+                        <button type="button" id="f_btn"> <img id="heart" src="../img/<%= favorite %>" alt=""></button>
+                        <span class="f_content">加入收藏</span>
+                    </div>
+                </div>
+                <div class="mt-5 product_desc">
+                    <p style="font-size:20px;margin-bottom: 5px;">商品特色</p>
+                    <!-- <hr size="1" width="100%" color="#647F68" noshade> -->
+                    <svg height="10" width="500">
+                        <line x1="0" y1="0" x2="425" y2="0" style="stroke:#647F68;stroke-width:2" />
+                    </svg>
+                    <p style="font-size: 18px; width: 550px;"><%- item.product_desc %></p>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+    <!-- ..container -->
+    <%- include footer.ejs %>
+    <script src="../js/blowup.js"></script>
+    <script>
+        // 商品圖preview
+        function showImg(imgs) {
+
+            var mainImg = document.getElementById("mainImg");
+            mainImg.src = imgs.src;
+            // imgText.innerHTML = imgs.alt;
+            zoomUp();
+        }
+        
+        function zoomUp () {
+            $('#mainImg').blowup(); 
+        }
+
+        $(document).ready(function () {
+            $('#mainImg').blowup(); 
+        })
+
+        //加入收藏的愛心
+        var toggle = true;
+        $("#heart").on("click", function(e) {
+        if (toggle) {
+            $("#heart").attr("src", "../img/heart-fill.svg");
+            toggle = false
+        } else {
+            $("#heart").attr("src", "../img/heart-regular.svg");
+            toggle = true
+        }
+        // console.log(e);
+        })
+
+        //收藏進資料庫
+        $("#heart").on("click", function() {
+            var favoriteData = {
+                product_id: $("#productID")[0].innerText,
+                hearta: $("#heart").attr("src")
+            };
+            $.ajax({
+                type: "post",
+                url: "/product/fav",
+                data: favoriteData
+            }).then(function (msg) {
+                if (msg == "請先登入會員") {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'info',
+                        title: `<h3 style=color:#647f68>${msg}</h3>`,
+                        showConfirmButton: true,
+                        background: '#e2e1d1',
+                        footer: '<a href=../member_login style=color:#647f68;>前往登入/註冊頁</a>'
+                    });
+                    $("#heart").attr("src", "../img/heart-regular.svg");
+                } else {
+                    location.reload();
+                }
+            })//then
+        });
+
+        
+        // 商品數量選擇
+        $("#addBtn").click(function(){
+            // alert('addBtn');
+            var count = $("#productQty").val();
+            count++;
+            count = $("#productQty").val(count);
+        });
+
+        $("#deleteBtn").click(function(){
+            var count = $("#productQty").val();
+            if (count>0) {
+                if (count==1) {
+                    count--;
+                    count = $("#productQty").val(1);
+                } else {
+                    count--;
+                    count = $("#productQty").val(count);
+                }    
+            }
+        });
+
+        //加入購物車
+        if (localStorage.getItem('cartList') === null) {
+                var storageArray = [];
+                localStorage.setItem('cartList', JSON.stringify(storageArray));
+            } else {
+                var storageArray = JSON.parse(localStorage.getItem('cartList'));
+            };
+
+        $("#addToCart").click(function(){
+            const product = { "productID": $("#productID").text(),
+                              "productName": $("#productName").text(),
+                              "productPrice": $("#productPrice").text().replace('NT$', ''),
+                              "productImg": $("#mainImg").attr('src')};
+
+            const qty = $("#productQty").val();
+            const count = parseInt(qty); 
+            let item = {product, count};
+            storageArray.push(item);
+            //需先判別商品是否已加入購物車
+            var stringJson = JSON.stringify(storageArray);
+            localStorage.setItem('cartList', stringJson);
+            cartCounted();
+    
+        });
+       
+    </script>
+</body>
+</html>

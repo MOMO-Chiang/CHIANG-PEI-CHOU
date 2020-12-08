@@ -1,0 +1,241 @@
+.wrap_R .item {
+    margin-top: 30px;
+    font-size:18px;
+    font-weight: bold;
+}
+
+
+/* 商品類別位置 */
+
+
+
+#pd_type{
+    margin-top: 30px;
+    font-size:18px;
+    margin-left: 60px;
+    font-weight: bolder;
+}
+#product_list2{
+    font-size:18px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+/* 商品ID輸入框位置 */
+
+#pd_id {
+    margin-left: 215px;
+}
+#prod_id{
+    margin-left: 20px;
+}
+
+
+/* 商品價格輸入框位置 */
+
+#pd_price {
+    padding-left: 60px;
+}
+#unit{
+    margin-left: 20px;
+}
+
+
+/* 商品庫存輸入框位置 */
+
+/* #pd_stock {
+    padding-left: 55px;
+} */
+
+
+/* 商品名稱輸入框位置 */
+
+#pd_name {
+    padding-left: 60px;
+}
+#prod_name{
+    margin-left: 20px;
+}
+
+
+/* 商品描述輸入框位置 */
+
+#pd_desc {
+    margin-left: 60px;
+}
+
+#product_desc {
+    margin-top: -10px;
+    margin-left: 60px;
+}
+
+
+/* 照片預覽區 */
+
+.prepic {
+    position: relative;
+    margin-left: 60px;
+    width: 770px;
+    height: 200px;
+    border: 1px solid black;
+    padding-top:25px;
+}
+.prepic>img{
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+
+/* 選擇檔案按鈕 */
+
+#uplodProdImg {
+    margin-left: 60px;
+    color: var(--color4);
+    font-size: 16px;
+    width: 200px;
+}
+
+
+/* 上傳檔案按鈕 */
+
+#uplodprod_btn {
+    width: 60px;
+    height: 30px;
+    right: -10px;
+    font-size: 16px;
+    border-radius: 15px;
+    outline: none;
+    border-style: none;
+    color: white;
+    background-color: #D8705B;
+    margin-top: 20px;
+}
+
+#uplodprod_btn:hover {
+    opacity: 0.7;
+}
+#updateStatus{
+    margin-left: 10px;
+}
+
+
+/* 商品上架鈕 */
+
+#chk_btn_pd {
+    position: absolute;
+    width: 120px;
+    height: 36pX;
+    right: 80px;
+    bottom: 30px;
+    border-radius: 18px;
+    outline: none;
+    border-style: none;
+    font-size: 16px;
+    color: white;
+    background-color: var(--color4);
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#chk_btn_pd:hover {
+    opacity: 0.7;
+}
+
+/* 照片預覽區 */
+
+/* .prepic {
+    position: relative;
+    margin-left: 60px;
+    width: 750px;
+    height: 200px;
+    border: 1px solid black;
+    padding-top:25px;
+}
+.prepic>img{
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    object-fit: cover;
+} */
+
+/* 修改文章預覽照片 */
+
+.prepic #pre_img {
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    object-fit: cover;
+}
+/* The Close Button (x) */
+
+.close1 {
+    position: absolute;
+    left: 130px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close2 {
+    position: absolute;
+    left: 295px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close3 {
+    position: absolute;
+    left: 460px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close4 {
+    position: absolute;
+    left: 610px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close5 {
+    position: absolute;
+    left: 770px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close1:hover,
+.close2:hover,
+.close3:hover,
+.close4:hover,
+.close5:hover,
+.close1:focus,
+.close2:focus,
+.close3:focus, 
+.close4:focus, 
+.close5:focus {
+    opacity: 0.7;
+    cursor: pointer;
+}
+/* 一鍵輸入文字小山 */
+
+#speedText2 {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 20px;
+}
+
+#speedText2:hover {
+    cursor: pointer;
+}

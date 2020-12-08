@@ -1,0 +1,188 @@
+<!-- ver.11.29 新增購物車記數泡泡-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+</head>
+<style>
+    @font-face {
+        font-family: 'jf-openhuninn-1.1';
+        src: url('./font/jf-openhuninn-1.1.woff') format("woff"), url('./font/jf-openhuninn-1.1.ttf') format("truetype"), url('./font/jf-openhuninn-1.1.eot') format("embedded-opentype");
+    }
+    
+    :root {
+        --color1: #E2E1D1;
+        --color2: #D2DDD3;
+        --color3: #90AB8D;
+        --color4: #647F68;
+        --color5:  #93d3ee;
+    }
+    
+    body {
+        font-family: "jf-openhuninn-1.1";
+        /* line-height: 0; */
+    }
+    
+    .out {
+        width: 100%;
+        height: 100px;
+        margin: auto;
+        background-color: var(--color1);
+    }
+    
+    .in {
+        width: 1440px;
+        margin: auto;
+        height: 100px;
+        display: flex;
+        /* background-color: aliceblue; */
+    }
+    
+    .headtext {
+        margin: auto;
+        display: flex;
+    }
+    
+    .headtex {
+        margin: 0px 60px;
+        font-size: 24px;
+        text-decoration: none;
+        color: var(--color3);
+    }
+    
+    .headtex:hover {
+        color: var(--color4);
+    }
+
+    .logInBtn {
+        width: 150px;
+        height: 45px;
+        display: block;
+        border: none;
+        background-color:var(--color1);
+        margin: 0;
+        border-radius: 0;
+        text-decoration: none;
+        color: var(--color4);
+        line-height: 45px;
+        font-size: 20px;
+        outline: none;
+        /* padding-top: 8px;
+        padding-left: 55px; */
+        
+        
+    }
+    #drop{
+        background-color:var(--color1);
+        position: absolute;
+        right: 90px;
+        top: 120px;
+    }
+    
+    
+    #drop>a :hover {
+        background-color: var(--color3);
+        color: white;
+    }
+    
+    .dis {
+        display: none;
+    }
+    
+    #drop {
+        /* z-index: 999 !important; */
+        z-index: 10;
+        line-height: 0;
+    }
+    #arrow{
+        margin-left: 5px;
+    }
+    #arrow:hover {
+        cursor: pointer;
+    }
+    
+    .cart {
+        position: relative;
+    }
+    .addCount {
+        display:none;
+        border-radius:50%;
+        color:#fff;
+        background-color:red;
+        width:25px;
+        height:25px;
+        text-align:center;
+        font-size:16px;
+        font-weight: bold;
+        position:absolute;
+        top:20px;
+        right:-10px}
+
+</style>
+
+<body>
+    <div class="out">
+        <div class="in">
+            <a href="/homepage"><img src="../img/logo.svg" style="height: 80px;margin-top: 10px;"></a>
+            <div class="headtext">
+                <a style="text-decoration: none;" class="headtex" href="/newin">新手攻略</a>
+                <a style="text-decoration: none;" class="headtex" href="/newmt">山區資訊</a>
+                <a style="text-decoration: none;" class="headtex" href="/product">推薦商品</a>
+                <a style="text-decoration: none;" class="headtex" href="/game">測驗遊戲</a>
+            </div>
+            <a id= "cart" href="/product/checkOut">
+                <div class="cart">
+                    <img src="../img/cart.svg" style="width: 50px;height: 50px;margin-top:25px;">
+                    <span class="addCount"></span>
+                </div>
+            </a>
+            <!-- <img src="../img/cart.svg" style="width: 50px;height: 50px;margin-top:25px;"> -->
+            <div style="width: 50px;height: 50px;margin-top:25px;margin-right: 5px;margin-left:40px;border-radius: 25px;">
+                <img src="../img/upload/<%= memimg%>" width= "50"; height="50";  style="object-fit: cover; border-radius: 50%;position: relative;">
+            </div>
+            <p id="arrow" style="font-size: 20px;margin-top:41px;color: var(--color4);" onclick="drop()">▼</p>
+        </div>
+        <div id="drop" class="dis">
+            <div style="color: var(--color1);margin-bottom: 8px;font-size: 20px;margin-left: 65px;">▲</div>
+           <a href="/member"><button class="logInBtn" style="outline:none; display: <%= dis%>">會員專區</button></a>
+            <% if (loga == "登入") {%>
+                <a href="member_login_2"><button class="logInBtn" style="outline:none;">登入</button></a>
+                <% }else {%>
+                    <a href="../logout"><button class="logInBtn" style="outline:none;">登出</button></a>
+                    <% }%>
+        </div>
+    </div>
+    <script>
+        function drop() {
+            document.getElementById("drop").classList.toggle("dis");
+            if (arrow.innerText == "▼") {
+                arrow.innerText = "▲";
+            } else {
+                arrow.innerText = "▼";
+            }
+        }
+
+        $(document).ready(cartCounted);
+        
+         // 購物車計數泡泡
+         function cartCounted() {
+            var i = 0;
+            for (prop in JSON.parse(localStorage.cartList)) {
+                i++;
+                console.log(JSON.parse(localStorage.cartList)[prop]);
+            };
+            $('.addCount')[0].innerText = i ;
+            
+            if (i != 0) {
+                $('.addCount').css('display', 'block');
+            } else {
+                $('.addCount').css('display', 'none');
+            }
+        }
+    </script>
+</body>
+
+</html>

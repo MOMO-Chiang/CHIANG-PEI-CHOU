@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="css/sweetalert2.css">
+    <link rel="stylesheet" href="css/mountain_homepage.css" />
+
+    <title>髦登｜山區資訊</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+    <!-- header -->
+    <%- include header.ejs %>
+    <!-- 輪播區 -->
+    <% data.forEach((item,index)=> {%>
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img/mountains_img/<%= item.mountain_img1 %>" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+                <img src="img/mountains_img/<%= item.mountain_img2 %>" class="d-block w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+                <img src="img/mountains_img/<%= item.mountain_img3 %>" class="d-block w-100" alt="..." />
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+            <span class="sr-only">Next</span>
+        </a>
+        <div class="weather_card">
+            <div id="item">
+                <h4 id="mtName"></h4>
+                <p>
+                    <span id="today"></span><span id="weekdate"></span><span id="cur_time"></span>
+                </p>
+            </div>
+            <div id="item">
+                <h1 id="T"></h1>
+                <img id="wt_img" src="img/mountains_img/sunny.png" alt="" />
+                <p id="Wx"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <form action="" method="">
+            <div class="col" id="favorite">
+                <!-- for 加收藏用 山區id -->
+                <span hidden id="m_id"><%= item.mountain_id %></span>
+                <button type="button" id="f_btn">
+                    <img id="heart" src="img/<%= favorite %>" alt="" />
+                </button>
+                <span class="f_content">加入收藏</span>
+            </div>
+        </form>
+        <div class="row" id="title">
+            <div class="col-7" id="mt_name">
+                <h1 id="mountainName">
+                    <%= item.mountain_name%>
+                </h1>
+                <p>
+                    <%= item.mountain_desc%>
+                </p>
+            </div>
+        </div>
+        <div class="row" id="inform">
+            <div class="col-8 m-auto" style="height: 800px">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#basic" role="tab"
+                            aria-controls="home" aria-selected="true"><img src="img/mountains_img/m_icon.svg"
+                                alt="" />基本資料</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#traffic" role="tab"
+                            aria-controls="profile" aria-selected="false"><img src="img/mountains_img/m_icon.svg"
+                                alt="" />交通&路線</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#wildlife" role="tab"
+                            aria-controls="contact" aria-selected="false"><img src="img/mountains_img/m_icon.svg"
+                                alt="" />生態區</a>
+                    </li>
+                </ul>
+                <div class="tab-content m-auto" id="myTabContent">
+                    <div class="tab-pane fade show active" id="basic" role="tabpanel" aria-labelledby="basic-tab">
+                        <img id="mth_image" src="img/mountains_img/<%= item.mountain_chart%>" alt="" />
+                        <br>
+                        <h4>&lsaquo;山區高度圖&rsaquo;</h4>
+                        <br>
+                        <table id="mountain_details">
+                            <tr>
+                                <td id="tableTitle">所在縣市</td>
+                                <td>
+                                    <%= item.location%>
+                                </td>
+                                <td id="tableTitle">里程</td>
+                                <td>
+                                    <%= item.distance%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">步道型態</td>
+                                <td>
+                                    <%= item.pathtype%>
+                                </td>
+                                <td id="tableTitle">海拔高度</td>
+                                <td>
+                                    <%= item.altitude%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">高度落差</td>
+                                <td>
+                                    <%= item.dropof%>
+                                </td>
+                                <td id="tableTitle">所需時間</td>
+                                <td>
+                                    <%= item.take_time%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">難易度</td>
+                                <td>
+                                    <%= item.level%>
+                                </td>
+                                <td id="tableTitle">最適季節</td>
+                                <td>
+                                    <%= item.season%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">申請入山</td>
+                                <td>
+                                    <%= item.apply1%>
+                                </td>
+                                <td id="tableTitle">申請入園</td>
+                                <td>
+                                    <%= item.apply2%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">基點</td>
+                                <td colspan="3" id="trig_point">
+                                    <%- item.trig_point%>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="traffic" role="tabpanel" aria-labelledby="traffic-tab">
+                        <table id="traffic_form">
+                            <tr>
+                                <td id="tableTitle">出發點</td>
+                                <td>
+                                    <%= item.start_point%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">路線</td>
+                                <td>
+                                    <%- item.route%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">開車</td>
+                                <td id="by_car">
+                                    <%- item.by_car%>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="tableTitle">大眾運輸</td>
+                                <td id="by_masstransit">
+                                    <%- item.by_masstransit%>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <% }) %>
+
+                    <div class="tab-pane fade" id="wildlife" role="tabpanel" aria-labelledby="wildlife-tab">
+                        <h3 style="display:inline-block;">可愛動物區</h3><span>&nbsp;&nbsp;&lsaquo;點擊下方圖片看看我&rsaquo;</span>
+                        <div id="item">
+                            <% data2.forEach((item,index)=> {%>
+                            <div class="card">
+                                <img class="front-face" src="img/mountains_img/<%= item.animal_img%>"
+                                    class="card-img-top" alt="" />
+                                <div id="item">
+                                    <img class="back-face" id="<%= index%>" src="img/Adiu2.svg">
+                                    <p class="back-face">
+                                       <span id="animal_name"> <%= item.animal_name%></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <% }) %>
+                        </div>
+                        <h3 style="display:inline-block;">清新植物區</h3><span>&nbsp;&nbsp;&lsaquo;點擊下方圖片看看我&rsaquo;</span>
+                        <div id="item">
+                            <% data2.forEach((item,index)=> {%>
+                            <div class="card">
+                                <img class="front-face" src="img/mountains_img/<%= item.plant_img%>" class="card-img-top" alt="" />
+                                <div id="item">
+                                    <img class="back-face" id="<%= index%>" src="img/Adiu2.svg">
+                                    <p class="back-face">
+                                       <span id="animal_name"><%= item.plant_name%></span>
+                                    </p>
+                                </div>
+                            </div>
+                            <% }) %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 路線評論 -->
+        <div class="row">
+            <div class="col-9" id="messages">
+                <div id="msgTitle">
+                    <h3>路線評論</h3>
+                </div>
+                <form action="">
+                    <div class="content">
+                        <div id="item1">
+                            <h3>推薦指數</h3>
+                            <img src="img/mountains_img/m_icon_no.svg" alt="" score="1" name="rec" />
+                            <img src="img/mountains_img/m_icon_no.svg" alt="" score="2" name="rec" />
+                            <img src="img/mountains_img/m_icon_no.svg" alt="" score="3" name="rec" />
+                            <img src="img/mountains_img/m_icon_no.svg" alt="" score="4" name="rec" />
+                            <img src="img/mountains_img/m_icon_no.svg" alt="" score="5" name="rec" />
+                            <span id="cnt" hidden>0</span><span id="adj"></span>
+                        </div>
+                        <div id="item2">
+                            <textarea id="comment" cols="80" rows="3" placeholder="今天你想說些.."></textarea>
+                            <button type="button" id="rest_btn">清除</button>
+                            <button type="button" id="chk_btn">確定</button>
+                        </div>
+                    </div>
+                </form>
+
+                <div id="memberMsg">
+                    <% data3.forEach((item,index)=> {%>
+                    <div class="wrap">
+                        <div id="item">
+                            <img id="headimg" src="img/upload/<%= item.member_img%>" alt="" />
+                        </div>
+                        <div id="item">
+                            <h3>
+                                <%= item.member_name%>
+                            </h3>
+                            <p>
+                                <%= item.member_msg%>
+                            </p>
+                        </div>
+                        <div id="item">
+                            <% for(var i=0; i<item.rec_score ; i++) {%>
+                            <img id="scoreimg" src="img/mountains_img/m_icon.svg" alt="" score="<%= item.rec_score%>" />
+                            <% }%>
+                            <p id="msg_time">
+                                <%= item.msg_time%>
+                            </p>
+                        </div>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+            <!-- 回頂部圖案 -->
+            <div class="topimg">
+                <img id="to_topimg" src="img/mountains_img/m_icon.svg" alt="" />
+                <p id="back_toptext">回山頂</p>
+            </div>
+        </div>
+    </div>
+    <%- include footer.ejs %>
+    <script src="js/mountain_homepage.js"></script>
+</body>
+
+</html>

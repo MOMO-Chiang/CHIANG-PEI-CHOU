@@ -1,0 +1,390 @@
+@font-face {
+  font-family: "jf-openhuninn-1.1";
+  src: url("font/jf-openhuninn-1.1.woff") format("woff"),
+    url("font/jf-openhuninn-1.1.ttf") format("truetype"),
+    url("font/jf-openhuninn-1.1.eot") format("embedded-opentype");
+}
+:root {
+  --color1: #e2e1d1;
+  --color2: #d2ddd3;
+  --color3: #90ab8d;
+  --color4: #647f68;
+}
+* {
+  font-family: "jf-openhuninn-1.1";
+}
+
+body {
+  background-image: url(../img/game_img/bigbg.png);
+  /* background-color: var(--color2); */
+  background-size: 55%;
+}
+
+/* nav-bar */
+.out {
+  width: 1680px;
+  height: 100px;
+  margin: auto;
+  background-color: var(--color1);
+}
+
+.in {
+  width: 1440px;
+  margin: auto;
+  height: 100px;
+  display: flex;
+  /* background-color: aliceblue; */
+}
+
+.headtext {
+  margin: auto;
+  display: flex;
+}
+
+.headtex {
+  margin:0px 60px;
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--color3);
+}
+
+.headtex:hover {
+  color: var(--color4);
+}
+
+.headtext>a{
+  text-decoration: none;
+}
+
+/* .headtex:nth-child(4){
+  color: #647f68;
+} */
+
+
+/* footer */
+.foot {
+  width: 100%;
+  margin: auto;
+  height: 160px;
+  text-align: center;
+}
+
+.footertext {
+  font-size: 14px;
+  color: white;
+  margin-top: -42px;
+  margin-bottom: 0;
+}
+
+
+/* p1 */
+#gameArea {
+  position: relative;
+  width: 850px;
+  height: 550px;
+  background-color: var(--color2);
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+
+}
+
+#gameArea > img {
+  position: absolute;
+  width: 75%;
+  left: 12%;
+  top:10%;
+}
+#gameArea >#textInfo{
+  position: absolute;
+  width: 20%;
+  left: 25%;
+  top:5%;
+  
+}
+#gameArea >a>#startBtn{
+  position: absolute;
+  left: 35%;
+  top:85%;
+  width: 240px;
+  height: 48px;
+  font-size: 20px;
+  background-color: var(--color3);
+  border-radius: 25px;
+  color: white;
+  border: none;
+  outline: none;
+  
+}
+#gameArea >a>#startBtn:hover{
+  background-color: var(--color4);
+}
+
+/* p2 */
+
+#titleColorBlock{
+  height: 100px;
+  background-color: var(--color4);
+  border-radius: 4px 4px 0px 0px;
+  
+}
+#gameArea>#titleColorBlock>h3{
+  text-align: center;
+  line-height: 100px;
+  color: white;
+  
+  
+}
+#score{
+  display: none;
+}
+
+#gameBottom>img{
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  top:78%;
+}
+
+#gameArea >#buttonGroup2{
+  margin-top: 10%;
+  /* position: absolute; */
+  margin-left: 28%;
+  
+  
+}
+
+#gameArea >#buttonGroup2>li{
+  list-style: none;
+  margin-top: 20px;
+  font-size: 24px;
+  
+  
+}
+
+#gameArea >#buttonGroup2>li>button{
+  width: 240px;
+  height: 48px;
+  border-radius: 25px;
+  background-color: var(--color3);
+  border: none;
+  color: white;
+  outline: none;
+}
+
+#gameArea >#buttonGroup2>li>button:hover{
+  background-color: var(--color4);
+}
+
+/* p3 */
+#gameArea3 {
+  position: relative;
+  width: 850px;
+  height: 600px;
+  background-color: var(--color2);
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+
+}
+#gameBottom2>img{
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  top:82%;
+}
+#gameArea3>#textinfo{
+  margin-top: 30px;
+  padding-top: 50px;
+  text-align: center;
+  line-height: 20px;
+  color:var(--color4);
+}
+#result{
+  color:#D8705B;
+}
+#discount{
+  color:#D8705B;
+}
+
+#gameArea3 >#buttonGroup3{
+  margin-top: 30px;
+  /* position: absolute; */
+  margin-left: 28%;
+}
+
+#gameArea3 >#buttonGroup3>a>li{
+  list-style: none;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#gameArea3 >#buttonGroup3>a>li>button{
+  width: 300px;
+  height: 48px;
+  border-radius: 25px;
+  background-color: var(--color3);
+  border: none;
+  color: white;
+  text-decoration: none;
+  color: white;
+  outline: none;
+}
+
+
+#gameArea3 >#buttonGroup3>a>li>button:hover{
+  background-color: var(--color4);
+}
+/* 彈出視窗答對答錯區塊 */
+.m_title{
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 48px;
+  width: 240px;
+  height: 48px;
+  border-radius: 30px;
+  /* background-color: var(--color4); */
+  color: white;
+}
+.content{
+  height: 100px;
+  width: 90%;
+  color: white;
+  margin: auto;
+  font-size: 18px;
+  
+}
+.ansBtn{
+  font-size: 20px;
+  outline: none;
+}
+/* 下一題按鈕 */
+.nextBtn{
+  position: absolute;
+  left:78%;
+  top:68%;
+  width: 72px;
+  height: 72px;
+  border-radius: 36px 36px 36px 36px;
+  background-color: var(--color4);
+  color: white;
+  border: none;
+  outline: none;
+}
+#next_page{
+  outline: none;
+}
+
+/* 最後ㄧ題按鈕 */
+#togame_p3{
+  position: absolute;
+  left:78%;
+  top:68%;
+  width: 72px;
+  height: 72px;
+  border-radius: 36px 36px 36px 36px;
+  background-color: var(--color4);
+  color: white;
+  border: none;
+  display: none;
+  outline: none;
+}
+/* modal吉祥物圖片 */
+.picArea{
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+.picArea>img{
+  width: 80%;
+  position: relative;
+  left:10%;
+}
+.picArea>h5{
+  position: absolute;
+  left:69%;
+  bottom:41%;
+  color: var(--color4);
+}
+
+
+/* modal效果 */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 3;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+
+/* Modal Content/Box */
+
+.modal-content {
+  background-color:var(--color3);
+  margin: 5% auto 15% auto;
+  /* 5% from the top, 15% from the bottom and centered */
+  width: 30%;
+  /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button (x) */
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color:var(--color4);
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: var(--color2);
+  cursor: pointer;
+}
+
+
+/* Add Zoom Animation */
+
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+      -webkit-transform: scale(0)
+  }
+  to {
+      -webkit-transform: scale(1)
+  }
+}
+
+@keyframes animatezoom {
+  from {
+      transform: scale(0)
+  }
+  to {
+      transform: scale(1)
+  }
+}

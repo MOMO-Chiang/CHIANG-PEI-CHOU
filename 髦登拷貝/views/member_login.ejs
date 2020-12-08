@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜登入系統</title>
+    <link rel="stylesheet" href="css/member_login.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <%- include header.ejs %>
+        <!-- login -->
+        <div class="form_1">
+            <div class="form_2">
+                <button id="sendbtn" onclick="location.href='member_login/member_login_2'">我要登入</button>
+                <button id="sendbtn" onclick="location.href='member_login/member_login_3'">我要註冊</button>
+            </div>
+        </div>
+        <div class="cloud">
+            <img id="cloud_1" src="img/member_login_img/cloud.svg" alt="">
+            <img id="cloud_2" src="img/member_login_img/cloud.svg" alt="">
+        </div>
+        <div class="cloud2">
+            <img id="cloud_3" src="img/member_login_img/cloud.svg" alt="">
+            <img id="cloud_4" src="img/member_login_img/cloud.svg" alt="">
+        </div>
+
+
+        <!-- footer -->
+        <%- include footer.ejs %>
+</body>
+
+</html>

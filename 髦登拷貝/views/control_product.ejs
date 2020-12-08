@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../css/control_article.css" />
+  <link rel="stylesheet" href="../css/control_product.css" />
+  <title>髦登｜商品管理</title>
+  <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <!-- 左側欄位start -->
+    <div class="row">
+      <div class="col-4">
+        <div class="wrap_L">
+          <% data.forEach((item,index)=> {%>
+          <img id="uImg" src="../img/upload/<%=item.member_img%>" alt="" />
+          <h3 id="uName">
+            <%=item.member_name%>
+          </h3>
+          <% })%>
+          <a href="/controls/control_article"><button type="button" id="article">文章管理</button></a>
+          <a href="/controls/control_product">
+            <button type="button" id="product">商品管理</button></a>
+          <a href="/controls/control_order"><button type="button" id="order">訂單管理</button></a>
+          <a href="/homepage"><img src="../img/logo.svg" alt="" /></a>
+        </div>
+      </div>
+      <!-- 左側欄位end -->
+      <div class="col-8">
+        <div class="wrap_R">
+          <h3 id="title">商品管理</h3>
+
+          <select name="category_id" id="product_list">
+            <option value="ALL">全部</option>
+            <option value="1">配件</option>
+            <option value="2">背包</option>
+            <option value="3">服飾</option>
+            <option value="4">鞋子</option>
+          </select>
+          <a href="/controls/control_product_edit"><button type="button" class="fa fa-plus" id="add_product">
+              新增商品
+            </button></a>
+          <table id="product_mgt">
+            <thead>
+              <tr>
+                <th>
+                  <span id="pd_num">商品ID</span>
+                  <span id="pd_img">商品圖片</span>
+                  <span id="pd_price">價格</span>
+                  <!-- <span id="pd_stock">庫存</span> -->
+                  <span id="pd_update">上架日期</span>
+                  <span id="tool">管理工具</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% data1.forEach((item, index) => { %>
+              <tr class="<%= item.category_id %>  pall">
+                <td>
+                  <h5 id="product_id"><%= item.product_id %></h5>
+                </td>
+                <td id="product_img">
+                  <img src="../img/products/<%= item.product_img %>" alt="" />
+                </td>
+                <td id="unitprice">$<%= item.unitprice %></td>
+                <!-- <td id="stock"><%= item.stock %></td> -->
+                <td id="sell_date"><%= item.sell_date %></td>
+                <td id="btn_group">
+                  <a href="/controls/control_product_edit_<%= item.product_id %>"><button type="button"
+                      id="edit_btn_pd" class="fa fa-pencil"></button></a>
+                  <button type="button" id="del_btn_pd" value="<%= item.product_id %>" class="fa fa-trash"></button>
+                </td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include footer.ejs %>
+  <script src="../js/controls.js"></script>
+</body>
+
+</html>

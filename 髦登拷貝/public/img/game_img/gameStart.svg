@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 240 48" style="enable-background:new 0 0 240 48;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#647E67;}
+	.st1{fill:#FFFFFF;}
+	.st2{font-family:'jf-openhuninn-1.1';}
+	.st3{font-size:24px;}
+</style>
+<path class="st0" d="M24,0h192c13.3,0,24,10.7,24,24l0,0c0,13.3-10.7,24-24,24H24C10.7,48,0,37.3,0,24l0,0C0,10.7,10.7,0,24,0z"/>
+<text transform="matrix(1 0 0 1 78.38 32.55)" class="st1 st2 st3">遊戲開始</text>
+</svg>

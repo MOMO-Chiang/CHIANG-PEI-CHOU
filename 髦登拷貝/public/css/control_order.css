@@ -1,0 +1,132 @@
+#title{
+    margin-bottom: 20px;
+}
+/* collapse外觀設定 */
+
+#accordionExample {
+    margin-left: 50px;
+    width: 800px;
+    height: 600px;
+    overflow: auto;
+}
+
+.card-header {
+    height: 60px;
+}
+
+.card-header:hover {
+    cursor: pointer;
+}
+
+#od_id {
+    margin-left: 10px;
+}
+
+.card-body {
+    margin: auto;
+}
+
+
+/* 訂單詳細內容外觀 */
+
+#order_detial {
+    width: 1000px;
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+#order_detial tr:nth-child(1) {
+    background-color: var(--color2);
+}
+
+
+/* 訂單詳細欄 標頭 */
+
+#od_date {
+    padding-left: 30px;
+}
+
+#od_num {
+    padding-left: 50px;
+}
+
+#od_tot {
+    padding-left: 50px;
+}
+
+#od_status {
+    padding-left: 50px;
+}
+
+#status_btn {
+    margin-left: 600px;
+    width: 100px;
+    height: 36px;
+    font-size: 16px;
+    outline: none;
+    outline-style: none;
+    border: 0;
+    border-radius: 18px;
+    color: white;
+    background-color: var(--color4);
+}
+
+#status_btn:hover {
+    background-color: var(--color3);
+}
+
+#status{
+    padding: 5px;
+    font-size: 16px;
+}
+
+
+/* 訂單詳細欄 內容 */
+
+#order_time {
+    padding-left: 20px;
+}
+
+#order_id {
+    padding-left: 30px;
+}
+
+#grand_total {
+    padding-left: 55px;
+}
+
+#order_status {
+    padding: 10px 50px;
+}
+
+
+/* 訂購人欄外觀 */
+
+#ordermen_detial {
+    width: 800px;
+    margin-left: 45px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+#ordermen_detial tr {
+    border: 0;
+}
+
+
+/* 訂購人欄外觀 */
+
+#ordermen_detial td:nth-child(even) {
+    padding-left: 10px;
+}
+
+
+/* 訂購人欄欄位位置 */
+
+#deliver {
+    padding-left: 200px;
+}
+
+#pay {
+    padding-left: 200px;
+}

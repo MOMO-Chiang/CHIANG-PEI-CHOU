@@ -1,0 +1,138 @@
+/* ver.11-28 */
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color5: #D3EDF9;
+    --color6: #d8705b;
+}
+
+@font-face {
+    font-family: "jf-openhuninn-1.1";
+    src: url(../font/jf-openhuninn-1.1.woff)format("woff"),
+         url(../font/jf-openhuninn-1.1.ttf)format("truetype"),
+         url(../font/jf-openhuninn-1.1.eot)format("embedded-opentype");
+}
+
+* {
+    font-family:"jf-openhuninn-1.1";
+    font-size: 16px;
+    color: var(--color4);
+}
+
+body {
+    width: 100vw;
+}
+
+.custom-container-width {
+    max-width: 1440px;
+}
+
+.orderStep {
+    width: 100px;
+    height: 100px;
+    /* border: 1px solid; */
+    margin: 20px 30px;
+    padding-left: 20px;
+    padding-top: 45px;
+    font-size: 22px;
+    color: var(--color1);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#consumerBox {
+    width: 800px;
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 30px;
+    /* margin-right: 20px; */
+}
+h5 {
+    text-align: left; 
+    margin:10px;
+}
+
+table[class="data"] {
+    width: 100%;
+    border: 1px solid var(--color4);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+input[type="text"] {
+    width: 360px;
+    background-color: rgba(144,171, 141, 0.5);
+    border: none;
+    outline: none;
+    margin: 10px;
+    height: 30px;
+}
+
+input[type="text"]:checked::after {
+    background-color: var(--color4);
+}
+
+input[type="radio"] {
+    margin: 20px 0;
+}
+
+table[class="total"] {
+    width: 50%;
+    /* background-color: lightpink; */
+    text-align: left;
+}
+
+table[class="total"]>tbody>tr>td {
+    padding: 10px;
+}
+
+td {
+    padding: 0;
+}
+
+
+#backToCart1 {
+    width: 120px;
+    height: 36px;
+    margin:30px 10px;
+    border:1px solid var(--color4);
+    border-radius: 18px;
+    color: var(--color4);
+    background-color: white;
+    outline: none;
+}
+
+#backToCart1:hover {
+    color:white;
+    background-color: var(--color4);
+}
+
+#nextToCart3 {
+    width: 120px;
+    height: 36px;
+    margin:30px 10px;
+    border:1px solid var(--color6);
+    border-radius: 18px;
+    color: var(--color6);
+    background-color: white;
+    outline: none;
+}
+
+#nextToCart3:hover {
+    color:white;
+    background-color: var(--color6);
+}
+
+#cardform {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-header>button:focus {
+    outline: none;
+}
+  

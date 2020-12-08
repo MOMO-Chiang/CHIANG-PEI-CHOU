@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/control_article.css" />
+    <link rel="stylesheet" href="../css/control_article_edit.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <title>髦登｜文章編輯</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <!-- 左側欄位start -->
+      <div class="row">
+        <div class="col-4">
+          <div class="wrap_L">
+            <% data.forEach((item,index)=> {%>
+            <img id="uImg" src="../img/upload/<%=item.member_img%>" alt="" />
+            <h3 id="uName"><%=item.member_name%></h3>
+            <% })%>
+            <a href="/controls/control_article"
+              ><button type="button" id="article">文章管理</button></a
+            >
+            <a href="/controls/control_product">
+              <button type="button" id="product">商品管理</button></a
+            >
+            <a href="/controls/control_order"
+              ><button type="button" id="order">訂單管理</button></a
+            >
+            <a href="/homepage"><img src="../img/logo.svg" alt="" /></a>
+          </div>
+        </div>
+        <!-- 左側欄位end -->
+        <% data1.forEach((item,index)=> {%>
+        <div class="col-8">
+          <form action="">
+            <div class="wrap_R">
+              <img src="../img/m_icon.svg" alt="" id="speedText">
+              <div class="item">
+                <span id="art_type" value="<%= item.category_id%>">
+                  文章類別
+                </span>
+                <select name="category_id" id="article_list2">
+                  <option value="all">全部</option>
+                  <option value="1" id="AA">申請</option>
+                  <option value="2" id="AT">體能</option>
+                  <option value="3" id="AE">裝備</option>
+                  <option value="4" id="AF">食物</option>
+                  <option value="5" id="AR">救難</option>
+                  <option value="6" id="AC">環境</option>
+                </select>
+                <span class="d1" style="display: none"
+                  ><%= data3[0].article_id%></span
+                >
+                <span class="d2" style="display: none"
+                  ><%= data3[1].article_id%></span
+                >
+                <span class="d3" style="display: none"
+                  ><%= data3[2].article_id%></span
+                >
+                <span class="d4" style="display: none"
+                  ><%= data3[3].article_id%></span
+                >
+                <span class="d5" style="display: none"
+                  ><%= data3[4].article_id%></span
+                >
+                <span class="d6" style="display: none"
+                  ><%= data3[5].article_id%></span
+                >
+              </div>
+              <div class="item">
+                <span id="title">文章編號</span
+                ><input
+                  type="text"
+                  name="article_id"
+                  id="article_id"
+                  placeholder="Ex:AT001"
+                  value="<%= item.article_id%>"
+                />
+              </div>
+              <div class="item">
+                <span id="title">文章標題</span
+                ><input
+                  type="text"
+                  name="article_title"
+                  id="article_title"
+                  value="<%= item.title%>"
+                />
+              </div>
+              <div class="item">
+                <p id="content_title">文章內文</p>
+                <textarea
+                  name="article_content"
+                  id="article_content"
+                  cols="90"
+                  rows="8"
+                >
+                  <%= item.content%>
+                </textarea>
+              </div>
+              <div class="item">
+                <form
+                  action=""
+                  method=""
+                  enctype="multipart/form-data"
+                  id="updateImg"
+                >
+                  <div class="prepic" id="preview">
+                    <% data2.forEach((item,index)=> {%>
+                    <img
+                      id="pre_img"
+                      src="../img/articles_img/<%= item.article_img%>"
+                      alt=""
+                      style="display: <%= display_status%>"
+                    />
+                    <span
+                      class="close<%= index+1%>"
+                      style="display: <%= display_status%>"
+                      id="delete_btn"
+                      value="<%= item.article_img%>"
+                      >&times;</span
+                    >
+                    <% })%>
+                  </div>
+                  <input
+                    type="file"
+                    name="uploadImg"
+                    accept="image/*"
+                    id="uplodImg"
+                    class="upload-file"
+                    multiple
+                  />
+                  <!-- onchange="previewFiles()" -->
+                  <input type="button" value="上傳" id="uplodchk_btn" />
+                  <span id="updateStatus"></span>
+                </form>
+              </div>
+              <input
+                type="button"
+                id="chk_btn"
+                value="文章發佈"
+                name="<%= item.article_id%>"
+              />
+            </div>
+            <% })%>
+          </form>
+        </div>
+      </div>
+    </div>
+    <%- include footer.ejs %>
+    <script src="../js/controls.js"></script>
+    <script>
+      // 文分類辨識(更新文章用)
+      let category = $("#art_type")[0].attributes[1].value;
+      console.log(category);
+      switch (category) {
+        case "1":
+          $("#AA").attr("selected", "selected");
+          break;
+        case "2":
+          $("#AT").attr("selected", "selected");
+          break;
+        case "3":
+          $("#AE").attr("selected", "selected");
+          break;
+        case "4":
+          $("#AF").attr("selected", "selected");
+          break;
+        case "5":
+          $("#AR").attr("selected", "selected");
+          break;
+        case "6":
+          $("#AC").attr("selected", "selected");
+          break;
+      }
+    </script>
+  </body>
+</html>

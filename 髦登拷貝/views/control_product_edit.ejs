@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/control_article.css" />
+    <link rel="stylesheet" href="../css/control_product.css" />
+    <link rel="stylesheet" href="../css/control_product_edit.css" />
+    <title>髦登｜商品編輯</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <!-- 左側欄位start -->
+      <div class="row">
+        <div class="col-4">
+          <div class="wrap_L">
+            <% data.forEach((item,index)=> {%>
+            <img id="uImg" src="../img/upload/<%=item.member_img%>" alt="" />
+            <h3 id="uName"><%=item.member_name%></h3>
+            <% })%>
+            <a href="/controls/control_article"
+              ><button type="button" id="article">文章管理</button></a
+            >
+            <a href="/controls/control_product">
+              <button type="button" id="product">商品管理</button></a
+            >
+            <a href="/controls/control_order"
+              ><button type="button" id="order">訂單管理</button></a
+            >
+            <a href="/homepage"><img src="../img/logo.svg" alt="" /></a>
+          </div>
+        </div>
+        <!-- 左側欄位end -->
+        <% data1.forEach((item,index)=> {%>
+        <div class="col-8">
+          <div class="wrap_R">
+            <img src="../img/m_icon.svg" alt="" id="speedText2">
+            <div class="item">
+              <span id="pd_type" value="<%=item.category_id%>">商品分類</span>
+              <select name="category_id" id="product_list2">
+                <option value="all">全部</option>
+                <option value="1" id="PA">配件</option>
+                <option value="2" id="PB">背包</option>
+                <option value="3" id="PC">服飾</option>
+                <option value="4" id="PS">鞋子</option>
+              </select>
+              <span id="pd_id">商品編號</span>
+              <input
+                type="text"
+                name="product_id"
+                id="prod_id"
+                placeholder="Ex:PS001"
+                value="<%=item.product_id%>"
+              />
+            </div>
+            <div class="item">
+              <span id="pd_price">商品價格</span>
+              <input
+                type="text"
+                name="unitprice"
+                id="unit"
+                value="<%=item.unitprice%>"
+              />
+              <span id="pd_name">商品名稱</span>
+              <input
+                type="text"
+                name="product_name"
+                id="prod_name"
+                value="<%=item.product_name%>"
+              />
+            </div>
+            <span class="d1" style="display: none"
+              ><%= data5[0].product_id%></span
+            >
+            <span class="d2" style="display: none"
+              ><%= data5[1].product_id%></span
+            >
+            <span class="d3" style="display: none"
+              ><%= data5[2].product_id%></span
+            >
+            <span class="d4" style="display: none"
+              ><%= data5[3].product_id%></span
+            >
+
+            <div class="item">
+              <p id="pd_desc">商品描述</p>
+              <textarea
+                name="product_desc"
+                id="product_desc"
+                cols="75"
+                rows="5"
+              >
+<%=item.product_desc%></textarea
+              >
+            </div>
+
+            <div class="item">
+              <div class="prepic" id="previewProd">
+                <% data2.forEach((item,index)=> {%>
+                  <img
+                    id="pre_img"
+                    src="../img/products/<%= item.product_img%>"
+                    alt=""
+                    style="display: <%= display_status%>"
+                  />
+                  <span
+                    class="close<%= index+1%>"
+                    style="display: <%= display_status%>"
+                    id="deleteBtn_pd"
+                    value="<%= item.product_img%>"
+                    >&times;</span
+                  >
+                  <% })%>
+              </div>
+              <form action="" enctype="multipart/form-data">
+                <input
+                  type="file"
+                  name="product_img"
+                  accept="image/*"
+                  id="uplodProdImg"
+                  multiple
+                />
+                <input type="button" value="上傳" id="uplodprod_btn" /><span id="updateStatus"></span>
+              </form>
+            </div>
+            <input
+              type="submit"
+              id="chk_btn_pd"
+              value="商品上架"
+              name="<%=item.product_id%>"
+            />
+            <% })%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include footer.ejs %>
+    <script src="../js/controls.js"></script>
+    <script>
+      // 商品分類辨識(更新商品用)
+      let category = $("#pd_type")[0].attributes[1].value;
+      console.log(category);
+      switch (category) {
+        case "1":
+          $("#PA").attr("selected", "selected");
+          break;
+        case "2":
+          $("#PB").attr("selected", "selected");
+          break;
+        case "3":
+          $("#PC").attr("selected", "selected");
+          break;
+        case "4":
+          $("#PS").attr("selected", "selected");
+          break;
+      }
+    </script>
+  </body>
+</html>

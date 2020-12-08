@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>髦登｜會員中心</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/sweetalert2.all.min.js"></script>
+  <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <link rel="stylesheet" href="css/sweetalert2.css" />
+  <link rel="stylesheet" href="css/member.css" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+  <%- include header.ejs %>
+  <div class="container custom-container-width">
+    <div class="row no-gutters">
+      <!-- 左側menu -->
+      <% data.forEach((item,index)=> {%>
+      <div class="col-2" id="sidemenu">
+        <img id="memberImg" src="img/upload/<%=item.member_img%>" alt="" width="150px" height="150px" />
+        <h3 id="printname"><%=item.member_name%></h3>
+        <% })%>
+        <div id="member_level">
+          <img src="img/member_img/m_icon.svg" alt="" width="50px" height="50px" />
+          <img src="img/member_img/m_icon_no.svg" alt="" width="50px" height="50px" />
+          <img src="img/member_img/m_icon_no.svg" alt="" width="50px" height="50px" />
+        </div>
+        <div class="nav flex-column nav-pills" id="v-pills-tab btnBlock" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-favorite-tab" data-toggle="pill" href="#v-pills-favorite" role="tab"
+            aria-controls="v-pills-favorite" aria-selected="true">我的收藏</a>
+          <a class="nav-link" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab"
+            aria-controls="v-pills-order" aria-selected="false">我的訂單</a>
+          <a class="nav-link" id="v-pills-backpack-tab" data-toggle="pill" href="#v-pills-backpack" role="tab"
+            aria-controls="v-pills-backpack" aria-selected="false">我的背包</a>
+          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
+            aria-controls="v-pills-settings" aria-selected="false">修改資料</a>
+        </div>
+      </div>
+      <!-- ..col-2(sidemenu) -->
+      <!-- 右側content -->
+      <div class="col-9" id="contentBox">
+        <div class="tab-content" id="v-pills-tabContent">
+          <!-- 我的收藏start -->
+          <div class="tab-pane fade show active" id="v-pills-favorite" role="tabpanel"
+            aria-labelledby="v-pills-favorite-tab">
+            <nav id="nav-tabController">
+              <div class="nav nav-tabs mt-3" id="nav-tab" role="tablist">
+                <a class="nav-link active" id="nav-mountain-tab" data-toggle="tab" href="#nav-mountain" role="tab"
+                  aria-controls="nav-mountain" aria-selected="true">收藏路線</a>
+                <a class="nav-link" id="nav-article-tab" data-toggle="tab" href="#nav-article" role="tab"
+                  aria-controls="nav-article" aria-selected="false">收藏文章</a>
+                <a class="nav-link" id="nav-product-tab" data-toggle="tab" href="#nav-product" role="tab"
+                  aria-controls="nav-product" aria-selected="false">收藏商品</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-mountain" role="tabpanel " aria-labelledb
+                y="nav-mountain-tab">
+                <!-- 收藏路線小提醒 -->
+                <div id="remindImg">
+                  <img id="askfavImg1" src="img/remindChart2.svg" alt="" />
+                  <span id="reminText">該出門走走囉!</span>
+                  <img id="askfavImg2" src="img/Adiu_stand.svg" alt="" />
+                </div>
+                <% data1.forEach((item,index)=> {%>
+                <!-- 收藏路線內容start -->
+                <ul id="content">
+                  <li class="d-flex">
+                    <img id="chkStatus" src="img/mountains_img/<%= item.mountain_img1%>" alt="" width="100px"
+                      height="60px" />
+                    <a href="mountains?mid=<%= item.mountain_id%>" target="_blank">
+                      <h4><%= item.mountain_name%></h4>
+                    </a>
+                    <button id="removeBtn1" value="<%= item.mountain_id%>">
+                      <img src="img/member_img/heart-white-fill.svg" alt="" width="14px" he ight="14px" />
+                      <span>取消收藏</span>
+                    </button>
+                  </li>
+                </ul>
+                <!-- 收藏路線內容end -->
+                <% })%>
+              </div>
+
+              <div class="tab-pane fade" id="nav-article" role="tabpanel" aria-labelledby="nav-article-tab">
+                <!-- 收藏知識小提醒 -->
+                <div id="remindImg2">
+                  <img id="askfavImg1" src="img/remindChart2.svg" alt="" />
+                  <span id="reminText">吸收知識很重要哦!</span>
+                  <img id="askfavImg2" src="img/Adiu2.svg" alt="" />
+                </div>
+                <% data2.forEach((item,index)=> {%>
+                <!-- 收藏文章內容start -->
+                <ul id="content">
+                  <li class="d-flex">
+                    <img id="chkStatus2" src="img/articles_img/<%= item.article_img%>" alt="" width="100px"
+                      height="60px" />
+                    <a href="article_p1?aid=<%= item.article_id%>" target="_blank">
+                      <h4><%= item.title%></h4>
+                    </a>
+                    <button id="removeBtn2" value="<%= item.article_id%>">
+                      <img src="img/member_img/heart-white-fill.svg" alt="" width="14px" height="14px" />
+                      <span>取消收藏</span>
+                    </button>
+                  </li>
+                </ul>
+                <!-- 收藏文章內容end -->
+                <% })%>
+              </div>
+              <div class="tab-pane fade" id="nav-product" role="tabpanel" aria-labelledby="nav-product-tab">
+                <!-- 收藏商品小提醒 -->
+                <div id="remindImg3">
+                  <img id="askfavImg1" src="img/remindChart2.svg" alt="" />
+                  <span id="reminText">還不快買起來!</span>
+                  <img id="askfavImg2" src="img/Adiu3.svg" alt="" />
+                </div>
+                <% data3.forEach((item,index)=> {%>
+                <!-- 收藏商品內容start -->
+                <ul id="content">
+                  <li class="d-flex">
+                    <img id="chkStatus3" src="img/products/<%= item.product_img%>" alt="" width="100px" height="60px" />
+                    <a href="product/product_detail_<%= item.product_id%>" target="_blank">
+                      <h4><%= item.product_name%></h4>
+                    </a>
+                    <button id="removeBtn3" value="<%= item.product_id%>">
+                      <img src="img/member_img/heart-white-fill.svg" alt="" width="14px" height="14px" />
+                      <span>取消收藏</span>
+                    </button>
+                  </li>
+                </ul>
+                <!-- 收藏商品內容end -->
+                <% })%>
+              </div>
+            </div>
+          </div>
+          <!-- 我的收藏end -->
+
+          <!-- 我的訂單start -->
+          <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
+            <nav id="nav-tabController">
+              <div class="nav nav-tabs mt-3" id="nav-tab" role="tablist">
+                <a class="nav-link active" id="nav-pending-tab" data-toggle="tab" href="#nav-pending" role="tab"
+                  aria-controls="nav-pending" aria-selected="true">待處理</a>
+                <a class="nav-link" id="nav-processed-tab" data-toggle="tab" href="#nav-processed" role="tab"
+                  aria-controls="nav-processed" aria-selected="false">已處理</a>
+              </div>
+            </nav>
+
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-pending" role="tabpane1" aria-labelledby="nav-pending-tab">
+                <div class="accordion" id="accordionExample" style="margin-top: 30px">
+                  <h3 id="no_ord"></h3>
+                  <% data4.forEach((item,index)=> {%>
+                  <!-- 待處理訂單start -->
+                  <div class="card">
+                    <div class="card-header" id="heading1">
+                      <table>
+                        <tr>
+                          <td>訂單編號</td>
+                          <td>訂單日期</td>
+                          <td>訂單總額</td>
+                          <td>訂單狀態</td>
+                        </tr>
+                        <tr id="order_table" class="chk_ord">
+                          <td id="order_id"><%= item.order_id%></td>
+                          <td id="order_time"><%= item.order_time%></td>
+                          <td>NT$&nbsp; <%= item.grand_total%></td>
+                          <td><%= item.status%></td>
+                        </tr>
+                      </table>
+
+                      <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapse<%= index+1%>" aria-expanded="false" aria-controls="collapse<%= index+1%>"
+                        id="orderBtn" value="<%= item.OID%>">
+                        +訂單明細
+                      </button>
+                    </div>
+                    <div id="collapse<%= index+1%>" class="collapse" aria-labelledby="headingOne"
+                      data-parent="#accordionExample">
+                      <div class="card-body">
+                        <h5 style="text-align: left">商品明細</h5>
+                        <table class="table">
+                          <thead class="thead-light">
+                            <tr>
+                              <th>商品名稱</th>
+                              <th>商品單價</th>
+                              <th>商品數量</th>
+                              <th>金額小計</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% data5.forEach((item,index)=> {%>
+                            <tr id="pd_detail" value="<%= item.OID%>" style="display: none">
+                              <td id="pd_name"><%= item.product_name%></td>
+                              <td id="uni_price">
+                                NT$&nbsp;<%= item.unitprice%>
+                              </td>
+                              <td id="pd_qyt"><%= item.qty%></td>
+                              <td id="pd_sub">
+                                NT$&nbsp;<%= item.subtotal%>
+                              </td>
+                            </tr>
+                            <% })%>
+                          </tbody>
+                        </table>
+                        <h5 style="text-align: left">配送資訊</h5>
+
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>收件人:</td>
+                              <td><%= item.customer_name%></td>
+                              <td>配送方式：</td>
+                              <td><%= item.deliverfee%></td>
+                            </tr>
+                            <tr>
+                              <td>電話：</td>
+                              <td><%= item.customer_tel%></td>
+                              <td>付款方式：</td>
+                              <td><%= item.paytype%></td>
+                            </tr>
+                            <tr>
+                              <td>地址：</td>
+                              <td><%= item.customer_add%></td>
+                              <td>總消費金額：</td>
+                              <td>NT$&nbsp; <%= item.grand_total%>&nbsp;&nbsp;<span
+                                  style="color:#d8704b;">(<%= item.discount%>使用優惠代碼)</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <% })%>
+                  <!-- 待處理訂單end -->
+                </div>
+              </div>
+              <div class="tab-pane fade active" id="nav-processed" role="tabpanel" aria-labelledby="nav-processed-tab">
+                <div class="accordion" id="processedExample" style="margin-top: 30px">
+                  <!-- 已處理訂單start -->
+                  <% data6.forEach((item,index)=> {%>
+                  <div class="card">
+                    <div class="card-header" id="heading3">
+                      <table>
+                        <tr>
+                          <td>訂單編號</td>
+                          <td>訂單日期</td>
+                          <td>訂單總額</td>
+                          <td>訂單狀態</td>
+                        </tr>
+                        <tr id="order_table">
+                          <td><%= item.order_id%></td>
+                          <td id="order_time"><%= item.order_time%></td>
+                          <td>NT$&nbsp;<%= item.grand_total%></td>
+                          <td><%= item.status%></td>
+                        </tr>
+                      </table>
+                      <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                        data-target="#collapse<%= index+1%>" aria-expanded="false" aria-controls="collapse3"
+                        id="orderedBtn" value="<%= item.OID%>">
+                        +訂單明細
+                      </button>
+                    </div>
+                    <div id="collapse<%= index+1%>" class="collapse" aria-labelledby="heading3"
+                      data-parent="#processedExample">
+                      <div class="card-body">
+                        <h5 style="text-align: left">商品明細</h5>
+                        <table class="table">
+                          <thead class="thead-light">
+                            <tr>
+                              <th>商品名稱</th>
+                              <th>商品單價</th>
+                              <th>商品數量</th>
+                              <th>金額小計</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <% data7.forEach((item,index)=> {%>
+                            <tr id="pd_detail2" value="<%= item.OID%>" style="display: none">
+                              <td><%= item.product_name%></td>
+                              <td>NT$&nbsp;<%= item.unitprice%></td>
+                              <td><%= item.qty%></td>
+                              <td>NT$&nbsp;<%= item.subtotal%></td>
+                            </tr>
+                            <% })%>
+                          </tbody>
+                        </table>
+                        <h5 style="text-align: left">配送資訊</h5>
+                        <table class="table">
+                          <tbody>
+                            <tr>
+                              <td>收件人:</td>
+                              <td><%= item.customer_name%></td>
+                              <td>配送方式：</td>
+                              <td><%= item.deliverfee%></td>
+                            </tr>
+                            <tr>
+                              <td>電話：</td>
+                              <td><%= item.customer_tel%></td>
+                              <td>付款方式：</td>
+                              <td><%= item.paytype%></td>
+                            </tr>
+                            <tr>
+                              <td>地址：</td>
+                              <td><%= item.customer_add%></td>
+                              <td>總消費金額：</td>
+                              <td>NT$&nbsp;<%= item.grand_total%>&nbsp;&nbsp;<span
+                                  style="color:#d8704b;">(<%= item.discount%>使用優惠代碼)</span></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <% })%>
+                  <!-- 已處理訂單end -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 我的訂單end -->
+
+          <!-- 我的背包start -->
+
+          <div class="tab-pane fade text-center" id="v-pills-backpack" role="tabpanel" aria-labelledby="v-pills-backpack-tab">
+            <div id="print_area">
+              <!-- 背包大袋子 -->
+              <div class="backpack_All row">
+                <!-- 左邊背包 -->
+
+                <div class="backpack_L col" style="width: 480px" id="mtname">
+                  <p id="Msg_content">{{ message }}</p>
+                  <input id="Msg" v-model="message" placeholder="輸入欲前往山區"/>
+                  <img src="img/member_img/bag_m.png" alt="" style="width: 450px" id="pbag" />
+                  <div id="bagitem">
+                    <img src="img/member_img/pants.png" alt="" class="pants" />
+                    <img src="img/member_img/shirt.png" alt="" class="shirt" />
+                    <img src="img/member_img/coat.png" alt="" class="coat" />
+                    <img src="img/member_img/cane.png" alt="" class="cane" />
+                    <img src="img/member_img/shoes.png" alt="" class="shoes" />
+                    <img src="img/member_img/hat.png" alt="" class="hat" />
+                    <img src="img/member_img/water_bottle.png" alt="" class="waterbottle" />
+                    <img src="img/member_img/lamp.png" alt="" class="lamp" />
+                    <img src="img/member_img/food.png" alt="" class="food" />
+                  </div>
+                </div>
+
+                <!-- 右邊清單 -->
+
+                <div class="backpack_R col">
+                  <div style="margin-right:230px;font-size: 24px;">建議攜帶物品(可點選取消)</div>
+                  <div class="text-left backtype">衣物</div>
+                  <div class="d-flex">
+                    <div class="mr-5">
+                      <input type="checkbox" name="checkboxes" id="pants" />
+                      <label for="pants"><span class="check1">登山褲</span></label>
+                    </div>
+                    <div class="mr-5">
+                      <input type="checkbox" name="checkboxes" id="shirt" />
+                      <label for="shirt"><span class="check1">登山衣</span></label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="checkboxes" id="coat" />
+                      <label for="coat"><span class="check1">登山外套</span></label>
+                    </div>
+                  </div>
+                  <div class="text-left backtype">配件</div>
+                  <div class="d-flex">
+                    <div class="mr-5">
+                      <input type="checkbox" name="checkboxes" id="cane" />
+                      <label for="cane"><span class="check1">登山仗</span></label>
+                    </div>
+                    <div class="mr-5">
+                      <input type="checkbox" name="checkboxes" id="shoes" />
+                      <label for="shoes"><span class="check1">登山鞋</span></label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="checkboxes" id="hat" />
+                      <label for="hat"><span class="check1">登山帽</span></label>
+                    </div>
+                  </div>
+                  <div class="text-left backtype">其他</div>
+                  <div class="d-flex">
+                    <div class="mr-5">
+                      <input type="checkbox" name="checkboxes" id="waterbottle" />
+                      <label for="waterbottle"><span class="check1">水壺</span></label>
+                    </div>
+                    <div class="mr-5">
+                      <input type="checkbox" name="checkboxes" id="lamp" />
+                      <label for="lamp"><span class="check1">頭燈</span></label>
+                    </div>
+                    <div>
+                      <input type="checkbox" name="checkboxes" id="food" />
+                      <label for="food"><span class="check1">糧食</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button id="downloadBtn">下載清單</button>
+            </div>
+
+          </div>
+
+          <!-- 我的背包end -->
+          <!-- 修改資料start -->
+          <% data.forEach((item,index)=> {%>
+          <div class="tab-pane fade text-center" id="v-pills-settings" role="tabpanel"
+            aria-labelledby="v-pills-settings-tab">
+            <img id="memberImg" src="img/upload/<%=item.member_img%>" alt="" width="180px" height="180px" />
+            <br />
+            <form action="/member" method="post" enctype="multipart/form-data">
+              <input type="file" name="myImg" id="fileName" accept="image/*" multiple />
+              <button type="submit" id="uploadBtn">上傳頭像</button>
+            </form>
+            <form action="" class="text-center mt-4">
+              <div class="form-row text-left">
+                <div class="form-group">
+                  <label for="memberName">姓名:</label>
+                  <input type="text" class="form-control" id="memberName" name="member_name"
+                    value="<%=item.member_name%>" />
+                </div>
+                <div class="form-group">
+                  <label for="memberMail">信箱:</label>
+                  <input type="text" class="form-control" id="memberMail" name="member_mail"
+                    value="<%=item.member_mail%>" />
+                </div>
+              </div>
+              <div class="form-row text-left">
+                <div class="form-group">
+                  <label for="memberPsw">密碼:</label>
+                  <input type="text" class="form-control" id="memberPsw" name="member_psw" />
+                </div>
+                <div class="form-group">
+                  <label for="pswCheck">確認密碼:</label>
+                  <input type="text" class="form-control" id="pswCheck" name="member_psw2" />
+                </div>
+              </div>
+              <button type="button" id="editBtn" class="mt-2">
+                修改送出
+              </button>
+            </form>
+          </div>
+          <% })%>
+          <!-- 修改資料end -->
+        </div>
+        <!-- ..v-pills-tabContent -->
+      </div>
+      <!-- ..col-9(contentBox) -->
+    </div>
+    <!-- ..row -->
+  </div>
+  <!-- ..container -->
+  <%- include footer.ejs %>
+  <script src="js/member.js"></script>
+  <script>
+     var app6 = new Vue({
+        el: "#mtname",
+        data: {
+          message: "",
+        },
+      });
+    $(".check1").on("click",function(){
+      $(this).toggleClass("check2");
+    })  
+    $("#downloadBtn").on("click", function () {
+      html2canvas(document.getElementById('print_area')).then(function (canvas) {
+        var pri = $("#printname").text();
+        var a = document.createElement('a');
+        a.href = canvas.toDataURL("image/jpg");
+        a.download = `${pri}行前清單`;
+        a.click();
+      });
+
+
+    });
+  </script>
+</body>
+
+</html>

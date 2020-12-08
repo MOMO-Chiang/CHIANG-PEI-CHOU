@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/control_article.css" />
+    <link rel="stylesheet" href="../css/control_order.css" />
+    <title>髦登｜訂單管理</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- 左側欄位start -->
+        <div class="row">
+            <div class="col-4">
+                <div class="wrap_L">
+                    <% data.forEach((item,index)=> {%>
+                        <img id="uImg" src="../img/upload/<%=item.member_img%>" alt="" />
+                        <h3 id="uName">
+                            <%=item.member_name%>
+                        </h3>
+                        <% })%>
+                            <a href="/controls/control_article"><button type="button" id="article">文章管理</button></a
+            >
+            <a href="/controls/control_product">
+              <button type="button" id="product">商品管理</button></a
+            >
+            <a href="/controls/control_order"
+              ><button type="button" id="order">訂單管理</button></a
+            >
+            <a href="/homepage"><img src="../img/logo.svg" alt="" /></a>
+                </div>
+            </div>
+            <!-- 左側欄位end -->
+            <div class="col-8">
+                <div class="wrap_R">
+                    <h3 id="title">訂單管理</h3>
+                    <div class="accordion" id="accordionExample">
+                       <h3 id="od_management"></h3>
+                        <div class="card">
+                            <% data1.forEach((item,index)=> {%>
+                                <div class="card-header" id="headingOn">
+                                    <!-- 設定一次開一個 -->
+                                    <h5 class="m-0" data-toggle="collapse" data-target="#collapse<%= index+1%>" value="<%= item.OID%>" aria-controls="collapse<%= index+1%>">
+                                        <span id="">訂單編號</span>
+
+                                        <span id="od_id"><%= item.order_id %></span>
+                                    </h5>
+                                </div>
+                                <div id="collapse<%= index+1%>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <table id="order_detial">
+                                            <tr>
+                                                <td id="od_date">訂購日期</td>
+                                                <td id="od_num">訂單編號</td>
+                                                <td id="od_tot">訂單總額</td>
+                                                <td id="od_status">訂單狀態</td>
+                                            </tr>
+                                            <tr id="order_table">
+                                                <td id="order_time">
+                                                    <%= item.order_time %>
+                                                </td>
+                                                <td id="order_id">
+                                                    <%= item.order_id %>
+                                                </td>
+                                                <td id="grand_total">
+                                                    $<%= item.grand_total %>
+                                                </td>
+                                                <form action="">
+                                                    <td id="order_status">
+                                                        <select name="status" id="status" class="status">
+                              <option value="待處理"><%= item.status %></option>
+                              <option value="已處理">已處理</option>
+                            </select>
+                                                    </td>
+                                                </form>
+                                            </tr>
+                                        </table>
+                                        <table id="ordermen_detial">
+                                            <tr>
+                                                <td id="cName">姓名:</td>
+                                                <td id="customer_name">
+                                                    <%= item.customer_name %>
+                                                </td>
+                                                <td id="deliver">配送方式:</td>
+                                                <td id="deliverfee">
+                                                    <%= item.deliverfee %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td id="tel">電話:</td>
+                                                <td id="customer_tel">
+                                                    <%= item.customer_tel %>
+                                                </td>
+                                                <td id="pay">付款方式:</td>
+                                                <td id="paytype">
+                                                    <%= item.paytype %>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td id="address">地址:</td>
+                                                <td id="customer_add" colspan="3">
+                                                    <%= item.customer_add %>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <button name="status_btn" id="status_btn" type="button" value="<%= item.OID %>">
+                      確認
+                    </button>
+                                    </div>
+                                </div>
+                                <% })%>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include footer.ejs %>
+        <script src="../js/controls.js"></script>
+</body>
+
+</html>

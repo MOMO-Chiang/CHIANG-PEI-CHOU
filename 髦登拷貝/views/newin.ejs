@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜新手攻略</title>
+    <link rel="stylesheet" href="../css/newin.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+
+    
+</head>
+
+<body>
+    <!-- header -->
+    <%- include header.ejs %>
+
+    <!-- 新手專區 -->
+    <div class="newBox">
+
+        <div class="newBox_1">
+            <div class="newBox_2">
+                <p style="font-size: 50px;">新手攻略</p>
+            </div>
+            <div class="newBox_3">
+                <p style="color: white; font-size: 30px;">6大知識快速入門</p>
+            </div>
+        </div>
+
+        <!-- 按鈕區 -->
+        <div class="mylistbox">
+            <a href="/article" id="a4" class="category">
+                <div class="l_1" id="listbtn">
+                    <p>食物</p>
+                </div>
+            </a>
+            <a href="/article" id="a1" class="category">
+                <div class="l_2" id="listbtn">
+                    <p>申請</p>
+                </div>
+            </a>
+            <a href="/article" id="a6" class="category">
+                <div class="l_3" id="listbtn">
+                    <p>環境</p>
+                </div>
+            </a>
+            <a href="/article" id="a3" class="category">
+                <div class="r_1" id="listbtn">
+                    <p>裝備</p>
+                </div>
+            </a>
+            <a href="/article" id="a2" class="category">
+                <div class="r_2" id="listbtn">
+                    <p>體能</p>
+                </div>
+            </a>
+            <a href="/article" id="a5" class="category">
+                <div class="r_3" id="listbtn">
+                    <p>救難</p>
+                </div>
+            </a>
+
+            <!-- 中間阿貂 -->
+            <div class="newImg">
+                <img src="../img/newin_img/阿貂.svg" alt="">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+    <%- include footer.ejs %>
+    <script>
+        $(".category").on("click", function() {
+            var cate = $(this).attr("id");
+            localStorage.setItem("cate", `${cate}`);
+        })
+    </script>
+</body>
+
+</html>

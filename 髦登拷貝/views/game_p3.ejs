@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜測驗遊戲結果</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/game.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+    <!-- nav-bar -->
+    <%- include header.ejs %>
+
+    <div id="gameArea3">
+        <div id="textinfo">
+            <h2>恭喜你完成測驗！</h2>
+            <p>你的分數是</p>
+            <h1 id="result">100</h1>
+            <p>繼續再接再厲，把我們的網站文章全看完並備妥裝備，就可以開始挑戰你的第一座山囉</p>
+            <h4 id="discount">商城折扣碼：mountain</h4>
+
+        </div>
+        <ul id="buttonGroup3">
+            <a href="/article"><li><button>獲得更多登山小知識</button></li></a>
+            <a href="/product"><li><button>前往購買裝備</button></li></a>
+            <a href="/game"><li><button>重新測驗</button></li></a>
+        </ul>
+        <div id="gameBottom2">
+            <img src="../img/game_img/game3Bottom.png" alt="">
+        </div>
+    </div>
+
+
+    <!-- footer -->
+    <%- include footer.ejs %>
+
+    
+    <script src="../js/game_p3.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜測驗遊戲</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+</head>
+<body>
+    <!-- nav-bar -->
+    <%- include header.ejs %>
+    <!-- game start -->
+    <div id="gameArea">
+        <img class="animate__animated animate__swing animate__infinite animate__slow 1.5s" id="textInfo" src="img/game_img/text.svg" alt="">
+        <img src="img/game_img/bg.png" alt="">
+        <a href="http://localhost:3000/game/game_p2"><button class="animate__animated animate__pulse animate__infinite " id="startBtn">開始測驗</button></a>
+    </div>
+
+
+    <!-- footer -->
+    <%- include footer.ejs %>
+
+    
+</body>
+</html>

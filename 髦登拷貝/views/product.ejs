@@ -1,0 +1,161 @@
+<!-- //ver.12-01 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推薦商品</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/topbox.css">
+    <link rel="stylesheet" href="css/plyr.css">
+    <link rel="stylesheet" href="css/product.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <%- include header.ejs %>
+    <div class="row no-gutters up_block">
+        <div class="col-6 left_block">
+            <img id="linkNew" src="img/AD_left.png" alt="" height="330px" style="cursor: pointer;">
+        </div>
+        <div class="col-6 right_block">
+            <a href="https://youtu.be/RM5eTNFfQsM" class="lightbox" aria-haspopup="dialog" title="">
+                <img src="img/banner_1.jpg" alt="" height="165px" style="cursor: pointer;">
+            </a>
+            <img src="img/banner_2.jpg" alt="" height="165px" style="cursor: pointer;">
+        </div>
+    </div>
+    <div class="container custom-container-width">
+        <div class="bottom_block">
+            <div class="row ml-2 product_select">
+                <div class="col-10 classBtn">
+                    <button class="apple cha" id="all" type="button">全部</button>
+                    <button class="apple" id="b4" href="" type="button">鞋子</button>
+                    <button class="apple" id="b3" href="" type="button">服飾</button>
+                    <button class="apple" id="b2" href="" type="button">背包</button>
+                    <button class="apple" id="b1" href="" type="button">配件</button>
+                </div>
+                <div class="col-2 listSort" style="text-align: center;">
+                    <select name="sortBtn" class="sortBtn" id="sortBtn">
+                        <option selected value="base">價格排序</option>
+                        <option value="high2low">價格 高-低</option>
+                        <option value="low2high">價格 低-高</option>
+                    </select>
+                </div>
+            </div>
+            <!-- 商品展示區start     -->
+            <div class="product_display">
+                <div class="mainCard row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 m-0">
+                    <% data.forEach((item, index) => { %>
+                    <div class="secCard col justify-content-center p-1 all b<%= item.category_id %>"
+                        style="display:flex;">
+                        <a href="product/product_detail_<%= item.product_id %>" style="text-decoration: none;">
+                            <div class="card">
+                                <img src="img/products/<%= item.product_img %>" class="card-img-top" width="210px"
+                                    height="125px" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-text"><%= item.product_name %></h5>
+                                    <div class="row card-foot">
+                                        <p class="cardPrice card-price" data-price="<%= item.unitprice %>">NT$&nbsp;<%= item.unitprice %></p>
+                                        <button type="button" class="buyBtn">
+                                            <a href="product/product_detail_<%= item.product_id %>">
+                                                <img src="img/cart.svg" alt="">
+                                            </a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <% }) %>
+                </div>
+            </div>
+            <!-- 商品展示區end -->
+        </div>
+        <!-- ..bottom_block -->
+    </div>
+    <!-- ..container -->
+    <%- include footer.ejs %>
+    <script src="js/plyr.js"></script>
+    <script src="js/topbox.js"></script>
+    <script>
+        //topbox
+        $(document).ready(function() {
+	        $('.lightbox').topbox({
+		        skin: 'darkroom',
+		        afterShowLightbox: function(lightbox){
+			        const player = new Plyr('#player', {
+				    /* Player options */
+				    autoplay: true
+			        });
+		        }
+	        });
+        });
+
+        // //分類
+        $(".apple").on("click", function () {
+            $(this).addClass("cha").siblings().removeClass("cha");
+            var a = $(this).attr("id");
+
+            if (a == "all") {
+                // window.location.reload().addClass();
+                $(".all").show();
+                return;
+            } else {
+                $(`.${a}`).siblings().hide();
+                $(`.${a}`).show();
+            }
+
+            // console.log(".cha");
+        });
+
+
+        //價錢排序
+        $(document).on("change", ".sortBtn", function () {
+            var sortingMethod = $(this).val();
+
+            if (sortingMethod == "low2high") {
+                sortProductsPriceAscending();
+            } else if (sortingMethod == "high2low") {
+                sortProductsPriceDescending();
+            }
+        });
+
+        function sortProductsPriceAscending() {
+            var gridItems = $(".secCard");
+
+            gridItems.sort(function (a, b) {
+                return (
+                    $(".cardPrice", a).data("price") -
+                    $(".cardPrice", b).data("price")
+                );
+            });
+
+            $(".mainCard").append(gridItems);
+        }
+
+        function sortProductsPriceDescending() {
+            var gridItems = $(".secCard");
+
+            gridItems.sort(function (a, b) {
+                return (
+                    $(".cardPrice", b).data("price") -
+                    $(".cardPrice", a).data("price")
+                );
+            });
+
+            $(".mainCard").append(gridItems);
+        }
+
+        $('#linkNew').on('click', function(){
+            location.href = 'product/new';
+        });
+
+    </script>
+</body>
+
+</html>

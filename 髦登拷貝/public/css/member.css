@@ -1,0 +1,371 @@
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color7: #d8704b;
+}
+
+@font-face {
+    font-family: "jf-openhuninn-1.1";
+    src: url(../font/jf-openhuninn-1.1.woff)format("woff"), url(../font/jf-openhuninn-1.1.ttf)format("truetype"), url(../font/jf-openhuninn-1.1.eot)format("embedded-opentype");
+}
+
+* {
+    font-family: "jf-openhuninn-1.1";
+    font-size: 16px;
+    color: var(--color4);
+}
+
+body {
+    width: 100%;
+}
+
+.custom-container-width {
+    max-width: 1440px;
+}
+
+a:hover {
+    outline: none;
+    text-decoration: none;
+}
+
+#sidemenu {
+    height: 700px;
+    background-color: var(--color1);
+    margin: 60px auto;
+    text-align: center;
+}
+
+#memberImg {
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+#member_level {
+    margin-bottom: 60px;
+}
+
+.nav-pills .nav-link, #uploadBtn, #editBtn, #downloadBtn {
+    width: 120px;
+    height: 36px;
+    border: 1px solid var(--color4);
+    border-radius: 18px;
+    color: var(--color4);
+    margin: 0 auto 20px auto;
+}
+
+.nav-link {
+    line-height: normal;
+}
+
+.nav-pills .nav-link.active, #uploadBtn, #editBtn, #downloadBtn, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: var(--color4);
+}
+
+#contentBox {
+    margin: 60px auto;
+    border: 1px solid var(--color4);
+    border-radius: 4px;
+}
+
+#nav-tabController {
+    margin: 0 30px;
+}
+
+.nav-tabs .nav-link {
+    width: 120px;
+    text-align: center;
+}
+
+.nav-tabs .nav-link {
+    border: 1px solid var(--color4);
+    border-bottom: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--color4);
+    margin-right: 5px;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: white;
+    background-color: var(--color4);
+}
+
+#nav-tabContent {
+    text-align: center;
+    border: 1px solid var(--color4);
+    margin: 0 30px;
+    overflow: auto;
+    height: 610px;
+}
+
+ul {
+    padding-inline-start: 0;
+}
+
+ul[id="content"]>li {
+    border: 1px solid var(--color4);
+    margin: 20px;
+}
+
+li>img {
+    margin: 10px;
+    object-fit: contain;
+}
+
+li>a {
+    margin: auto 10px;
+}
+
+#removeBtn1, #removeBtn2, #removeBtn3 {
+    width: 120px;
+    height: 36px;
+    border: 1px solid var(--color7);
+    border-radius: 18px;
+    background-color: var(--color7);
+    margin: auto 10px;
+}
+
+#removeBtn1>span {
+    color: white;
+}
+
+#removeBtn2>span {
+    color: white;
+}
+
+#removeBtn3>span {
+    color: white;
+}
+
+#removeBtn1:focus {
+    outline: none;
+}
+
+#removeBtn2:focus {
+    outline: none;
+}
+
+#removeBtn3:focus {
+    outline: none;
+}
+
+.tab-content {
+    margin-bottom: 30px;
+}
+
+.card {
+    margin: 10px 30px;
+}
+
+.card-header {
+    background-color: var(--color1)
+}
+
+.card-header>button {
+    color: var(--color7);
+}
+
+table {
+    width: 100%;
+}
+
+.table .thead-light th {
+    color: var(--color4);
+    background-color: var(--color2);
+    border-color: #dee2e6;
+    font-weight: normal;
+}
+
+tr {
+    text-align: left;
+}
+
+.form-group>input {
+    width: 250px;
+    height: 36px;
+    border: 1px solid var(--color4);
+}
+
+.form-row {
+    display: flex;
+    justify-content: center;
+}
+
+.form-group {
+    margin: 15px 20px;
+}
+
+#uploadBtn:focus, #downloadBtn:focus, #editBtn:focus {
+    outline: none;
+}
+
+#editBtn:hover {
+    opacity: 0.8;
+}
+
+#uploadBtn:hover {
+    opacity: 0.8;
+}
+
+/* 包包清單區 */
+
+.backtype {
+    font-size: 32px;
+    margin-top: 60px;
+}
+
+input[type="checkbox"] {
+    zoom: 1.5;
+}
+
+#pbag {
+    z-index: -1;
+    position: absolute;
+    display: block;
+    margin-left: 30px;
+}
+
+.check1 {
+    font-size: 24px;
+    }
+.check1:hover {
+    cursor: pointer;
+}
+.backpack_All {
+    margin-top: 30px;
+}
+
+.backpack_L {
+    position: relative;
+}
+
+.pants, .shirt, .coat, .shoes, .hat, .waterbottle, .lamp, .food {
+    width: 100px;
+    height: 100px;
+    margin-top: 35px;
+    display: block;
+}
+
+.cane {
+    width: 85px;
+    height: 85px;
+    margin-top: 35px;
+    display: block;
+}
+
+#bagitem {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: auto;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+#downloadBtn {
+    margin-top: 120px;
+}
+
+.show1 {
+    display: none;
+    animation: zoomin1 1s;
+}
+
+@keyframes zoomin1 {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+/* sweetalertmodal位置 */
+
+.swal2-container:not(.swal2-top):not(.swal2-top-start):not(.swal2-top-end):not(.swal2-top-left):not(.swal2-top-right):not(.swal2-center-start):not(.swal2-center-end):not(.swal2-center-left):not(.swal2-center-right):not(.swal2-bottom):not(.swal2-bottom-start):not(.swal2-bottom-end):not(.swal2-bottom-left):not(.swal2-bottom-right):not(.swal2-grow-fullscreen)>.swal2-modal {
+    margin: auto;
+    margin-right: 435px;
+}
+
+/* 上傳圖片名稱部分 */
+
+#fileName {
+    overflow: hidden;
+}
+
+/* 無收藏時阿貂出現小提醒 */
+
+#remindImg,
+#remindImg2,
+#remindImg3 {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin-top: 80px;
+    padding-right: 200px;
+}
+
+
+/* 提醒語 */
+
+#reminText {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    margin-top: 75px;
+    margin-left: 55px;
+    font-size: 1.2rem;
+}
+
+
+/* 提醒框 */
+
+#askfavImg1 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    margin-left: 60px;
+    margin-top: -10px;
+}
+
+
+/* 阿貂 */
+
+#askfavImg2 {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    margin-top: 100px;
+    margin-left: 200px;
+}
+input[type=checkbox]{
+    display: none;
+}
+/* 目標山區文字顯示位置 */
+
+#Msg_content {
+    font-size: 2rem;
+    width: 300px;
+    height: 50px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+
+/* 目標山區輸入框位置 */
+
+#Msg {
+    position: absolute;
+    margin-top: 598px;
+    margin-left: 380px;
+}
+.check2 {
+    color: var(--color7);
+}

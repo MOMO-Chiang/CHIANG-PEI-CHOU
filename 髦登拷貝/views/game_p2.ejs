@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>髦登｜測驗遊戲</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/game.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+  </head>
+  <body>
+    <!-- nav-bar -->
+    <%- include header.ejs %>
+
+    <div id="gameArea">
+      <div id="titleColorBlock">
+        <!-- 題目區 -->
+        <h3 class="titie">Q1: 下列哪一項不是高山症的預防對策?</h3>
+      </div>
+      <p id="score" value="0">0</p>
+      <ul id="buttonGroup2">
+        <li>
+          <button
+            id="A1"
+            class="ansBtn"
+            onclick="document.getElementById('modalArea').style.display='block'"
+          >
+            服用藥物
+          </button>
+        </li>
+        <li>
+          <button
+            id="A2"
+            class="ansBtn"
+            onclick="document.getElementById('modalArea').style.display='block'"
+          >
+            避免菸酒
+          </button>
+        </li>
+        <li>
+          <button
+            id="A3"
+            class="ansBtn"
+            onclick="document.getElementById('modalArea').style.display='block'"
+          >
+            趕快上山
+          </button>
+        </li>
+        <div class="modal" id="modalArea">
+          <form class="modal-content animate">
+            <span
+              onclick="document.getElementById('modalArea').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+            <h3 class="m_title"></h3>
+            <div class="content">
+              登頂應該步步為營，逐漸往高海拔推進，不要在一天內上升超過300公尺紮營。
+              另外，有藥物可在登山前按醫師指示事先服用預防。登山前也盡可能避免菸酒，
+              可多吃高糖、優質蛋白。也可在登山前諮詢醫生，請醫生開預防高山症的處方籤。
+            </div>
+            <div class="picArea">
+              <img src="../img/game_img/pic.svg" alt="">
+              <h5 class="picText">溫馨提醒</h5>
+            </div>
+          </form>
+        </div>
+      </ul>
+      <button
+        class="nextBtn animate__animated animate__pulse animate__infinite"
+        id="next_page">
+        下一題
+      </button>
+      <input type="button" id="togame_p3" value="看結果" name="total" class="animate__animated animate__pulse animate__infinite"/>
+      
+      <div id="gameBottom">
+        <img src="../img/game_img/gameBottom.png" alt="" />
+      </div>
+    </div>
+
+    <!-- footer -->
+    <%- include footer.ejs %>
+  
+    <script src="../js/game.js"></script>
+  </body>
+</html>

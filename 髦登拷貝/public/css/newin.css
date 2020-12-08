@@ -1,0 +1,186 @@
+@font-face {
+    font-family: 'jf-openhuninn-1.1';
+    src: url('./font/jf-openhuninn-1.1.woff') format("woff"),
+        url('./font/jf-openhuninn-1.1.ttf') format("truetype"),
+        url('./font/jf-openhuninn-1.1.eot') format("embedded-opentype");
+}
+
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color5: #E0F4F8;
+}
+
+body {
+    font-family: "jf-openhuninn-1.1";
+    margin: 0;
+    background-color: var(--color5);
+}
+
+/* header */
+.out {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    background-color: var(--color1);
+}
+
+.in {
+    width: 1440px;
+    margin: auto;
+    height: 100px;
+    display: flex;
+    /* background-color: aliceblue; */
+}
+
+.headtext {
+    margin: auto;
+    display: flex;
+}
+
+.headtex {
+    margin:0px 60px;
+    font-size: 24px;
+    text-decoration: none;
+    color: var(--color3);
+}
+
+.headtex:hover {
+    color: var(--color4);
+}
+
+/* 新手專區 */
+.newBox{
+    text-align: center;
+    width: 1200px;
+    height: 850px;
+    /* background-color: #ffea7f; */
+    margin:auto;
+    overflow:hidden;
+    /* background-color: #D2DDD3; */
+    /* padding: 0; */
+}
+
+/* 新手專區字樣和六大字樣區 */
+.newBox_2{
+    color: var(--color4);
+    
+}
+
+.newBox_3{
+    background-image: url("../img/newin_img/ribbon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 50px;
+    margin-top: -20px;
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center    
+}
+
+/* 六個按鈕區 */
+.mylistbox{
+    margin-top: 60px;
+    display:flex; 
+    justify-content:center; 
+    align-items:center;
+}
+
+#listbtn{
+    background-color:var(--color5);
+    border: 1px solid var(--color4);
+    width: 100px;
+    height: 100px; 
+    border-radius:999em;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    font-size: 24px;
+    color:var(--color4);
+    top: 850px;
+}
+
+#listbtn:hover {
+    background-color: #647F68;
+    color: white;
+}
+
+/* 動畫 */
+.l_1{
+    animation: example 1s  forwards;
+}
+
+@keyframes example {
+    from {left:650px;top:850px;}
+    to {left:250px; top:350px;  }
+  }
+
+.l_2{
+    animation: example2 1s  forwards;
+}
+
+@keyframes example2 {
+    from {left:650px;top:850px;}
+    to {left:200px; top:500px;  }
+  }
+
+.l_3{
+    animation: example3 1s  forwards;
+}
+
+@keyframes example3 {
+    from {left:650px;top:850px;}
+    to {left:250px; top:650px;  }
+  }
+
+.r_1{
+    animation: example4 1s  forwards;
+}
+
+@keyframes example4 {
+    from {right:650px;top:850px;}
+    to {right:250px; top:350px;  }
+  }
+
+.r_2{
+    animation: example5 1s  forwards;
+}
+
+@keyframes example5 {
+    from {right:650px;top:850px;}
+    to {right:200px; top:500px;  }
+  }
+
+.r_3{
+    animation: example6 1s  forwards;
+}
+
+@keyframes example6 {
+    from {right:650px;top:850px;}
+    to {right:250px; top:650px;  }
+  }
+
+/* 阿貂 */
+.newImg{
+width: 540px;
+}
+
+/* footer */
+.foot {
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    margin: auto;
+}
+
+.footertext {
+    font-size: 14px;
+    color: white;
+    margin-top: -38px;
+    margin-bottom: 0px;
+}

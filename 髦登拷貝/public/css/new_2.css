@@ -1,0 +1,133 @@
+@font-face {
+    font-family: 'jf-openhuninn-1.1';
+    src: url('../font/jf-openhuninn-1.1.woff') format("woff"), url('../font/jf-openhuninn-1.1.ttf') format("truetype"), url('../font/jf-openhuninn-1.1.eot') format("embedded-opentype");
+}
+
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color6: #a3a7ad;
+    --color7: #d8705b;
+}
+
+
+* {
+    margin: 0;
+}
+
+body {
+    font-family: "jf-openhuninn-1.1";
+}
+
+.out {
+    width: 1680px;
+    height: 100px;
+    margin: auto;
+    background-color: var(--color1);
+}
+
+.in {
+    width: 1440px;
+    margin: auto;
+    height: 100px;
+    display: flex;
+}
+
+.headtext {
+    margin: auto;
+    display: flex;
+}
+
+.headtex {
+    margin: 0px 60px;
+    font-size: 24px;
+    text-decoration: none;
+    color: var(--color3);
+}
+
+.headtex:hover {
+    color: var(--color4);
+}
+
+.foot {
+    width: 1680px;
+    height: 160px;
+    text-align: center;
+    margin: auto;
+}
+
+.footertext {
+    font-size: 14px;
+    color: white;
+    margin-top: -38px;
+    margin-bottom: 0px;
+}
+
+p {
+    line-height: 2.1em;
+    font-size: 18px;
+    display: block;
+}
+
+.text-margin {
+    margin-top: 36px;
+}
+
+@keyframes jump {
+    0% {
+        bottom: 45px;
+    }
+    100% {
+        bottom: 60px;
+    }
+}
+
+.topimg {
+    position: fixed;
+    bottom: 0;
+    right: 63px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color3);
+}
+
+#to_topimg {
+    position: fixed;
+    width: 100px;
+    bottom: 40px;
+    right: 50px;
+}
+
+#to_topimg:hover {
+    animation: jump .5s infinite alternate;
+}
+
+
+/* 加入收藏愛心  */
+
+#heart:hover {
+    cursor: pointer;
+}
+
+/* img{
+    object-fit: cover;
+} */
+.b_icon_2 {
+    position: absolute;
+    top:190px;
+    left:410px;
+    width: 200px;
+    display: flex;
+    
+    /* padding-top: 5%; */
+    text-decoration: none;
+}
+
+.recom-card:hover {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+

@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'jf-openhuninn-1.1';
+    src: url('font/jf-openhuninn-1.1.woff') format("woff"), url('font/jf-openhuninn-1.1.ttf') format("truetype"), url('font/jf-openhuninn-1.1.eot') format("embedded-opentype");
+}
+
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color5:  #93d3ee;
+}
+
+body {
+    font-family: "jf-openhuninn-1.1";
+    margin: 0;
+    background-color: var(--color5);
+    padding: 0;
+}
+
+
+/* header */
+
+.out {
+    width: 100%;
+    height: 100px;
+    margin: auto;
+    background-color: var(--color1);
+}
+
+.in {
+    width: 1440px;
+    margin: auto;
+    height: 100px;
+    display: flex;
+    /* background-color: aliceblue; */
+}
+
+.headtext {
+    margin: auto;
+    display: flex;
+}
+
+.headtex {
+    margin: 0px 60px;
+    font-size: 24px;
+    text-decoration: none;
+    color: var(--color3);
+}
+
+.headtex:hover {
+    color: var(--color4);
+}
+
+
+/* form */
+
+.form_1 {
+    width: 750px;
+    height: 500px;
+    background-image: url("../img/member_login_img/m_cloud_3.svg");
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: auto;
+    margin-top: 150px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 10px;
+    /* background-color: lawngreen; */
+}
+
+.form_2 {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: -180px;
+}
+
+#sendbtn {
+    margin: auto;
+    width: 140px;
+    height: 36px;
+    border-radius: 18px;
+    border: 1px solid var(--color4);
+    background-color: white;
+    color: var(--color4);
+    font-size: 20px;
+    margin: 0px 10px;
+    outline: none;
+    cursor: pointer;
+}
+
+#sendbtn:hover {
+    background-color: var(--color4);
+    color: white;
+}
+
+
+/* footer */
+
+.foot {
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0px;
+}
+
+.footertext {
+    font-size: 14px;
+    color: white;
+    margin-top: -38px;
+    margin-bottom: 0px;
+}
+
+
+/* 雲動畫 */
+
+.cloud {
+    position: absolute;
+    right: 400px;
+    top: 550px;
+}
+
+#cloud_1 {
+    position: relative;
+    width: 100px;
+    margin-bottom: -120px;
+    animation: mymove2 3.5s infinite;
+    animation-direction: alternate;
+    /* display: flex; */
+}
+
+#cloud_2 {
+    position: relative;
+    width: 250px;
+    margin-top: -80px;
+    animation: mymove 6s infinite;
+    animation-direction: alternate;
+    /* animation-delay:-2s; */
+    /* display: flex; */
+}
+
+@keyframes mymove {
+    from {
+        left: 200px;
+    }
+    to {
+        left: 300px;
+    }
+}
+
+.cloud2 {
+    position: absolute;
+    left: 200px;
+    bottom: 550px;
+}
+
+#cloud_3 {
+    top: 250px;
+    position: relative;
+    width: 300px;
+    animation: mymove2 5s infinite;
+    animation-direction: alternate;
+}
+
+#cloud_4 {
+    position: relative;
+    width: 150px;
+    margin-bottom: 150px;
+    animation: mymove 4s infinite;
+    animation-direction: alternate;
+}
+
+@keyframes mymove2 {
+    from {
+        right: 0px;
+    }
+    to {
+        right: 300px;
+    }
+}

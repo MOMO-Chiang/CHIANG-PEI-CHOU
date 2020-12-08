@@ -1,0 +1,397 @@
+<!-- //ver.12-02更新折扣碼欄位 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>收件人資訊</title>
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/orderInfo.css">
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="../css/card.css">
+    </head>
+
+<body>
+    <%- include header3.ejs %>
+    <!-- <div class="header"></div> -->
+    <div class="container custom-container-width">
+        <div class="row justify-content-center">
+            <div class="orderStep" style="background-image: url('../img/m_icon_no.svg'); color:#90AB8D;">1</div>
+            <svg height="10" width="60" style="margin-top: 75px;">
+                <line x1="0" y1="0" x2="60" y2="0" style="stroke:#647F68;stroke-width:10" />
+              </svg>
+            <div class="orderStep" style="background-image: url('../img/m_icon.svg');">2</div>
+            <svg height="10" width="60" style="margin-top: 75px;">
+                <line x1="0" y1="0" x2="60" y2="0" style="stroke:#647F68;stroke-width:10" />
+              </svg>
+            <div class="orderStep" style="background-image: url('../img/m_icon_no.svg'); color:#90AB8D;">3</div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col- " id="consumerBox">
+                <h4 style="text-align: center; margin-bottom: 30px;">收件人資訊</h4>
+                <form action="">
+                    <table class="data" id="customer">
+                        <tr>
+                            <td style="border-bottom:1px solid;">
+                                <h5>基本資料</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            <label for="customerName">姓名：</label>
+                            <input type="text" id="customerName">
+                            <br>
+                            <label for="customerTel">電話：</label>
+                            <input type="text" id="customerTel">
+                            <br>
+                            <label for="customerAddr">地址：</label>
+                            <input type="text" id="customerAddr">
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="data">
+                        <tr>
+                            <td style="border-bottom:1px solid;">
+                                <h5>配送方式</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="radio" name="deliveryFee" id="sentHome" checked>
+                                <label for="sentHome">宅配到府</label>&emsp;
+                                <input type="radio" name="deliveryFee" id="sentCVS">
+                                <label for="sentCVS">超商取貨</label>
+                            </td>
+                        </tr>
+                    </table>
+                    <table class="data">
+                        <tr>
+                            <td style="border-bottom:1px solid;">
+                                <h5>付款方式</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-center">
+                                <input type="radio" name="payType" id="byCash" checked>
+                                <label for="byCash">貨到付款</label>&emsp;
+                                <input type="radio" name="payType" id="byCard">
+                                <label for="byCard">線上刷卡</label>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <h4 style="text-align: center; margin-bottom: 30px;">消費明細</h4>
+                <div class="row justify-content-center bg-light">
+                    <table class="total">
+                        <tr>
+                            <td>商品金額：</td>
+                            <td id="total"></td>
+                        </tr>
+                        <tr>
+                            <td>運費：</td>
+                            <td id="deliveryFee">NT$80</td>
+                        </tr>
+                        <tr>
+                            <td>優惠代碼：</td>
+                            <td>
+                                <input type="text" id="discountPw" style="width: 80px;margin: 0px;">
+                            </td>
+                            <td style="color: #d8705b; display: none; font-size: 14px; font-weight: bold;" id="discountText"></td>
+                            <td style="display: none;" id="discountUse"></td>
+                        </tr>
+                        <tr id="discountShow">
+                            <td>商品金額折扣：</td>
+                            <td id="discountPrice">NT$0</td>
+                        </tr>
+                        <tr>
+                            <td>總消費金額：</td>
+                            <td id="grand_total">NT$&nbsp;12080</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!-- ..consumerBox -->
+        </div>
+        <div class="row justify-content-center">
+            <a href="checkOut">
+                <button id="backToCart1">回上一步</button>
+            </a>
+            <a href="#">
+                <button id="nextToCart3">前往結帳</button>
+            </a>
+        </div>
+    </div>
+    <!-- ..container -->
+    <!-- //credit card modal -->
+    <div class="modal" data-backdrop="static" tabindex="-1" id="cardModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">請輸入信用卡資訊</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="demo-container">
+                    <div class="card-wrapper"></div>
+        
+                    <div class="form-container active">
+                        <form id="cardform" method="post" action="">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="cardNumber">信用卡卡號：</label>
+                                    </td>
+                                    <td>
+                                        <input placeholder="Card number" type="text" name="number" id=cardNumber>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="ownerName">持卡人姓名：</label>
+                                    </td>
+                                    <td>
+                                        <input placeholder="Full name" type="text" name="name" id="ownerName">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="expiryDate">有效期限：</label>
+                                    </td>
+                                    <td>
+                                        <input placeholder="MM/YY" type="text" name="expiry" id="expiryDate">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="CVC">背面後三碼：</label>
+                                    </td>
+                                    <td>
+                                        <input placeholder="CVC" type="text" name="cvc" id="CVC">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </form>
+                    </div>
+                    <br>
+                    <p style="font-size: 13px;">	
+                        ※ 提供VISA丶MasterCard丶JCB信用卡交易，全程使用安全加密，信用卡資料將不會儲存於網站，您可以安心使用信用卡付款。
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">取消</button>
+              <button id="sentCard" type="button" class="btn btn-success">送出</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <%- include footer.ejs %>
+    
+    <script src="../JS/jquery.card.js"></script>
+    <script>
+        //顯示購物車目前商品金額
+        function showCartPrice (){
+            let total = parseInt(localStorage.getItem('total'));
+            document.querySelector('#total').innerText = 'NT$'+ total;
+        }
+        
+        showCartPrice ();
+
+        //輸入折扣碼刷新金額
+        $('#discountPw').on('change', function(){
+            var discountPw = $('#discountPw').val();
+            var productPrice = parseInt($('#total').text().replace('NT$', ""));
+            if (discountPw == 'mountain') {
+                $('#discountText')[0].innerText = '商品金額折抵1000';
+                $('#discountText').css('display', 'block');
+                $('#discountUse')[0].innerText = '有';
+                $('#discountPrice')[0].innerText = 'NT$-1000';
+                // // productPrice = Math.round(productPrice * 0.5);
+                // localStorage.setItem('total', productPrice);
+                // showCartPrice ();
+                showGrandTotal();
+            } else if (discountPw !== 'mountain') {
+                $('#discountText')[0].innerText = '代碼錯誤';
+                $('#discountText').css('display', 'block');
+            } 
+        });
+           
+
+        //顯示消費明細運費
+        let deliveryFeeBlock = document.querySelector('#deliveryFee');
+        $('#sentHome').click(function(){
+           deliveryFeeBlock.innerText = 'NT$80';
+           showGrandTotal();
+        });
+        $('#sentCVS').click(function(){
+           deliveryFeeBlock.innerText = 'NT$60';
+           showGrandTotal();
+        });
+
+
+        //顯示總消費金額
+        function showGrandTotal () {
+            var productTotalPrice = document.querySelector('#total').innerText.replace('NT$', "");
+            var totalPrice = parseInt(productTotalPrice);
+            var deliveryTotalPrice = deliveryFeeBlock.innerText.replace('NT$', "");
+            var totalDelivery = parseInt(deliveryTotalPrice);
+            var discountPrice = $('#discountPrice')[0].innerText.replace('NT$', "");
+            var discount = parseInt(discountPrice);
+            var grand_total_Price = totalPrice + totalDelivery + discount;
+            document.querySelector('#grand_total').innerText = 'NT$' + grand_total_Price;
+            var grandTotal = $('#grand_total').text().replace('NT$', "");
+            localStorage.setItem('grandTotal', grandTotal);
+        }
+        
+        showGrandTotal();
+
+
+
+        //信用卡跳窗
+        $('#byCard').click(function(){
+            $('#cardModal').modal('show');
+        });
+
+        $("#cardform").card({
+                container: ".card-wrapper",
+                formatting: true, //輸入格式化
+
+                formSelectors: {
+                    numberInput: 'input[name="number"]',
+                    expiryInput: 'input[name="expiry"]',
+                    cvcInput: 'input[name="cvc"]',
+                    nameInput: 'input[name="name"]'
+                },
+
+                cardSelectors: {
+                    cardContainer: '.jp-card-container',
+                    card: '.jp-card',
+                    numberDisplay: '.jp-card-number',
+                    expiryDisplay: '.jp-card-expiry',
+                    cvcDisplay: '.jp-card-cvc',
+                    nameDisplay: '.jp-card-name'
+                },
+
+                mask: {
+                    cardNumber: false
+                },
+
+                classes: {
+                    valid: 'jp-card-valid',
+                    invalid: 'jp-card-invalid'
+                },
+
+                debug: false
+
+            });
+
+            $('#sentCard').click(function(){
+                var cardNumber = $('#cardNumber').val();
+                var ownerName = $('#ownerName').val();
+                var expiryDate = $('#expiryDate').val();
+                var CVC = $('#CVC').val();
+                if (cardNumber == '' || ownerName == '' || expiryDate == '' || CVC == '' ) {
+                    Swal.fire({
+                        title:`<h3 style=color:#647f68>你有資訊漏填囉!</h3>`,
+                        icon:'error',
+                        footer:'<p style="color:#647f68">再檢查一下吧!</p>',
+                        background: '#e2e1d1'
+                    });
+                } else {
+                    swal.fire("信用卡認證成功", "" , "success");
+                     $('#cardModal').modal('hide');
+                }
+            });
+        //信用卡跳窗
+
+        //判斷收件人資訊是否已經存在
+        if (localStorage.getItem('customerData') === null) {
+            var storageArray = [];
+            localStorage.setItem('customerData', JSON.stringify(storageArray));
+        } else {
+            var storageArray = JSON.parse(localStorage.getItem('customerData'));
+            // console.log(storageArray);
+            document.getElementById('customerName').value = storageArray.customerName;
+            document.getElementById('customerTel').value = storageArray.customerTel;
+            document.getElementById('customerAddr').value = storageArray.customerAddr;
+            
+            var deliveryFee = storageArray.deliveryFee;
+            if (deliveryFee == '宅配到府') {
+                document.querySelector('input[id=sentHome]').checked = true;
+                deliveryFeeBlock.innerText = 'NT$80';
+                showGrandTotal();
+            } else if (deliveryFee == '超商取貨') {
+                document.querySelector('input[id=sentCVS]').checked = true;
+                deliveryFeeBlock.innerText = 'NT$60';
+                showGrandTotal();
+            } else {
+                console.log('no select');
+            }
+
+            var paytype = storageArray.paytype;
+            if (paytype == '貨到付款') {
+                document.querySelector('input[id=byCash]').checked = true;
+            } else if (paytype == '線上刷卡') {
+                document.querySelector('input[id=byCard]').checked = true;
+            } else {
+                console.log('no select');
+            }
+
+        };
+        
+        
+        // 存取收件人資訊
+        function saveCustomerData(){
+            
+            let customerData = { "customerName": $('#customerName').val(),
+                                 "customerTel": $('#customerTel').val(),
+                                 "customerAddr": $('#customerAddr').val(),
+                                 "deliveryFee": $('input[name=deliveryFee]:checked').next('label').text(),
+                                 "paytype": $('input[name=payType]:checked').next('label').text(),
+                                 "discount": $('#discountUse')[0].innerText};
+            
+            var orderData = JSON.stringify(customerData);
+            localStorage.setItem('customerData', orderData);
+        }
+
+        saveCustomerData();
+
+        $('#nextToCart3').click(function (){
+            var customerName = $('#customerName').val();
+            var customerTel = $('#customerTel').val();
+            var customerAddr =  $('#customerAddr').val();
+            
+            if (customerName == '') {  
+                Swal.fire('你忘記輸入姓名啦!','再檢查一下吧!','error');
+            } else if (customerTel == '') {
+                Swal.fire('你忘記輸入電話啦!','再檢查一下吧!','error');
+            } else if (customerAddr == '') {
+                Swal.fire('你忘記輸入地址啦!','再檢查一下吧!','error');
+            } else {
+                saveCustomerData();
+                location.href = '/product/orderCheck';
+            }
+            
+        });
+        
+        //自動輸入基本資料
+        $('#customer').on('dblclick', function(){
+            $('#customerName').val('斗蕊咪');
+            $('#customerTel').val('0905948388');
+            $('#customerAddr').val('台中市南屯區公益路二段51號18樓');
+            
+        });
+
+        
+    </script>
+    
+</body>
+</html>

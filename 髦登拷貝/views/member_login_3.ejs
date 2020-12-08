@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜註冊系統</title>
+    <link rel="stylesheet" href="../css/member_login_3.css">
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon"/>
+    <script src="../js/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- header -->
+    <%- include header2.ejs %>
+        <!-- form -->
+        <div class="b_icon">
+            <a href="/member_login" class="b_icon_2">
+                <img src="../img/member_login_img/b_icon.svg" alt="" style="width: 20px;">
+                <p style="padding:0px 10px; text-decoration: none; font-size: 20px;">回上一頁</p>
+            </a>
+        </div>
+
+        <div class="login">
+
+            <form class="form_1" action="/member_login/member_login_3" method="post">
+                <img src="../img/m_icon.svg" alt="" id="speedText">
+                <div class="form_2">
+                    <p style="font-size: 26px; text-align: center;">註冊髦登帳號</p>
+                    <p style="color:#D8705B; text-align: center; margin-top: -5px;">
+                        <%= errMsg %>
+                    </p>
+                </div>
+                <input id="form_7" type="text" name="member_name" placeholder="會員名稱">
+                <input id="form_3" type="text" name="member_acct" placeholder="髦登帳號">
+                <input id="form_4" type="text" name="member_psw" placeholder="髦登密碼">
+                <input id="form_6" type="text" name="member_mail" placeholder="Email">
+                <button id="sendbtn" class="sendbtn" type="submit">註冊</button>
+            </form>
+
+            <div class="form_5">
+
+                <p>已經有帳號了嗎？</p>
+
+                <a href="/member_login/member_login_2" id="form_5">
+                    <p>馬上登入</p>
+                </a>
+            </div>
+        </div>
+        <div class="cloud">
+            <img id="cloud_1" src="../img/member_login_img/cloud.svg" alt="">
+            <img id="cloud_2" src="../img/member_login_img/cloud.svg" alt="">
+        </div>
+        <div class="cloud2">
+            <img id="cloud_3" src="../img/member_login_img/cloud.svg" alt="">
+            <img id="cloud_4" src="../img/member_login_img/cloud.svg" alt="">
+        </div>
+
+        <!-- footer -->
+        <%- include footer.ejs %>
+        <script src="../js/member_login.js"></script>
+</body>
+
+</html>

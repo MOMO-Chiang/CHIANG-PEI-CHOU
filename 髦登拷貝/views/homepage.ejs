@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜Mountain</title>
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+
+</head>
+
+<body>
+    <div class="topimg">
+        <div style="display: flex;float: right;position: absolute;right: 100px;top:22px; position: fixed;">
+            <div style="width: 50px;height: 50px;border-radius: 25px;">
+                <img src="../img/upload/<%= memimg%>" width="50" ; height="50" ;
+                    style="object-fit: cover; border-radius: 50%;">
+            </div>
+            <arrowp id="arrow" style="font-size: 20px;color: var(--color4);margin-top: 20px;" onclick="drop()">▼</arrowp>
+            <div id="drop" class="dis" style="background-color:var(--color1);position: absolute;right: -30px;top:80px;">
+                <div style="color: var(--color1);margin-bottom: 8px;font-size: 20px;margin-left: 65px;">▲</div>
+                <a href="/member" class="logInBtn aa" style="outline:none; display:<%= dis%>">會員專區</a>
+                <% if (loga == "登入") {%>
+                <a href="member_login/member_login_2"><button style="outline:none;" class="logInBtn">登入</button></a>
+                <% }else {%>
+                <a href="logout"><button style="outline:none;" class="logInBtn">登出</button></a>
+                <% }%>
+            </div>
+        </div>
+        <main class="d-flex " style="position: fixed;">
+            
+            <div id="changea" class="con" onclick="change()">
+                <div id="change1" class="bar"></div>
+                <div id="change2" class="bar"></div>
+                <div id="change3" class="bar"></div>
+                
+            </div>
+            <div id="text" class="text" style="z-index: 1;">
+                <div style="padding-top: 200px;">
+                    <div class="item">
+                        <div id="i1"><img src="img/m_icon.svg"><a href="newin">新手攻略</a></div>
+                    </div>
+                    <div class="item">
+                        <div id="i2"><img src="img/m_icon.svg"><a href="newmt">山區資訊</a></div>
+                    </div>
+                    <div class="item">
+                        <div id="i3"><img src="img/m_icon.svg"><a href="product">推薦商品</a></div>
+                    </div>
+                    <div class="item">
+                        <div id="i4"><img src="img/m_icon.svg"><a href="game">遊戲測驗</a></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <a href="https://codepen.io/tonkec//" class="ua" target="_blank">
+            <i class="fa fa-user"></i></a>
+        <img id="logo" src="../img/homepage_img/logo_h.svg" alt="">
+        <div class="cloud">
+            <img id="cloud_1" src="../img/homepage_img/cloud.svg" alt="">
+            <img id="cloud_2" src="../img/homepage_img/cloud.svg" alt="">
+        </div>
+        <div class="cloud2">
+            <img id="cloud_3" src="../img/homepage_img/cloud.svg" alt="">
+            <img id="cloud_4" src="../img/homepage_img/cloud.svg" alt="">
+        </div>
+
+    </div>
+
+    </div>
+    <div class="bodyimg">
+        <div class="imgsvg1"><img src="img/homepage_img/新手攻略_h.svg" alt=""></div>
+        <a href="newin"><img class="imgsvg1_1" src="img/homepage_img/新手攻略.png" alt=""></a>
+        <div class="imgsvg1_2">
+            <ul>
+                <li id="li_1"></li>
+                <li><img style="width: 250px; margin-left: 300px;" src="img/homepage_img/資產 3.svg" alt="">
+                </li>
+                <li><img style="width: 300px;" src="img/homepage_img/阿貂_1.svg" alt=""></li>
+            </ul>
+        </div>
+
+    </div>
+    <div>
+        <div class="imgsvg2"><img src="img/homepage_img/山區資訊_h.svg" alt=""></div>
+        <a href="newmt"><img class="imgsvg2_2" src="img/homepage_img/山區資訊.png" alt=""></a>
+    </div>
+    <div>
+        <div class="imgsvg3"><img src="img/homepage_img/推薦商品_h.svg" alt=""></div>
+        <a href="product"><img class="imgsvg3_3" src="img/homepage_img/推薦商品.png" alt=""></a>
+    </div>
+    <div>
+        <div class="imgsvg4"><img src="img/homepage_img/測驗遊戲_h.svg" alt=""></div>
+        <a href="game"><img class="imgsvg4_4" src="img/homepage_img/小遊戲.png" alt=""></a>
+    </div>
+    <a href="#" style="margin-left:800px;">
+        <div class="bTopimg">
+            <img src="../img/m_icon.svg" id="to_topimg">
+            <p>回山頂</p>
+        </div>
+    </a>
+
+    <%- include footer.ejs %>
+
+
+        <script src="../js/homepage.js"></script>
+</body>
+
+</html>

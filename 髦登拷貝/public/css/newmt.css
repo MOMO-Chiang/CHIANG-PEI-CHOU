@@ -1,0 +1,776 @@
+@font-face {
+  font-family: "jf-openhuninn-1.1";
+  src: url("../font/jf-openhuninn-1.1.woff") format("woff"),
+    url("font/jf-openhuninn-1.1.ttf") format("truetype"),
+    url("font/jf-openhuninn-1.1.eot") format("embedded-opentype");
+}
+
+:root {
+  --color1: #e2e1d1;
+  --color2: #d2ddd3;
+  --color3: #90ab8d;
+  --color4: #647f68;
+}
+
+* {
+  font-family: "jf-openhuninn-1.1";
+}
+
+body {
+  background-color: var(--color2);
+  width: 1680px;
+  overflow-x: hidden;
+}
+/* 會員登入 */
+.logInBtn {
+  width: 150px;
+  height: 45px;
+  text-align: center;
+  border: none;
+  background-color: var(--color1);
+  margin: 0;
+  border-radius: 0;
+  text-decoration: none;
+  color: var(--color4);
+  line-height: 45px;
+  font-size: 20px;
+  /* outline: none; */
+}
+
+#drop > a :hover {
+  background-color: var(--color3);
+  color: white;
+}
+
+.dis {
+  display: none;
+}
+
+#drop {
+  z-index: 10;
+  line-height: 0;
+}
+
+#arrow {
+  margin-left: 10px;
+}
+
+#arrow:hover {
+  cursor: pointer;
+}
+.aa:hover {
+  background-color: var(--color3);
+  color: white;
+  text-decoration: none;
+}
+
+/* 漢堡 */
+
+.ham {
+  height: 100px;
+}
+
+main {
+  position: absolute;
+  /* float: right; */
+  /* top: 50%; */
+  right: 0px;
+  top: 0px;
+  z-index: 1;
+}
+
+.con,
+.special-con {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bar {
+  display: block;
+  height: 5px;
+  width: 40px;
+  background: var(--color4);
+  margin: 10px auto;
+}
+
+/* 漢堡動畫 */
+
+.con {
+  width: auto;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin: 0 auto;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+#changea {
+  margin-right: 20px;
+  margin-top: 20px;
+  
+}
+
+.middle {
+  margin: 0 auto;
+}
+
+.bar {
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.top {
+  -webkit-transform: translateY(15px) rotateZ(45deg);
+  -moz-transform: translateY(15px) rotateZ(45deg);
+  -ms-transform: translateY(15px) rotateZ(45deg);
+  -o-transform: translateY(15px) rotateZ(45deg);
+  transform: translateY(15px) rotateZ(45deg);
+}
+
+.bottom {
+  -webkit-transform: translateY(-15px) rotateZ(-45deg);
+  -moz-transform: translateY(-15px) rotateZ(-45deg);
+  -ms-transform: translateY(-15px) rotateZ(-45deg);
+  -o-transform: translateY(-15px) rotateZ(-45deg);
+  transform: translateY(-15px) rotateZ(-45deg);
+}
+
+.middle {
+  width: 0;
+}
+
+.item {
+  font-size: 28px;
+  width: 430px;
+  text-align: center;
+  color: white;
+  height: 60px;
+  line-height: 60px;
+}
+
+.item > div > a {
+  color: var(--color4);
+}
+
+.item img {
+  height: 28px;
+  margin-right: 10px;
+  display: none;
+}
+
+.item:hover img {
+  display: inline-block;
+}
+
+.item:hover {
+  background-color: white;
+}
+
+main > #text {
+  width: 430px;
+  height: 600px;
+  /* background-color:#fdfdfd4d; */
+  background-color: #e2e1d1e3;
+  /* background-color: var(--color1); */
+  margin-top: -80px;
+  
+}
+
+.text {
+  display: none;
+  
+}
+
+.cart {
+  display: none;
+}
+
+.con1 {
+  margin-left: 350px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}
+
+/* 文字動畫 */
+
+#i1 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.2s;
+}
+
+#i2 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.4s;
+}
+
+#i3 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.6s;
+}
+
+#i4 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.8s;
+}
+
+@keyframes slide {
+  from {
+    right: -300px;
+  }
+  to {
+    right: 0px;
+  }
+}
+
+/* footer */
+
+.foot {
+  width: 100%;
+  margin: auto;
+  height: 160px;
+  text-align: center;
+}
+
+.footertext {
+  font-size: 14px;
+  color: white;
+  margin-top: -42px;
+  margin-bottom: 0;
+}
+
+/* 背景台灣地圖 */
+
+#bgImg {
+  margin: auto;
+  background-image: url(../img/newmt_img/bg.png);
+  background-repeat: no-repeat;
+  width: 1440px;
+  height: 1680px;
+  margin-top: 80px;
+}
+
+#logo > img {
+  position: absolute;
+  top: 120px;
+  left: 80px;
+  width: 240px;
+  height: 180px;
+  margin-top: 0px;
+}
+
+/* 啊貂指山 */
+#pointToMT{
+  position: absolute; 
+  left:950px; 
+  top:280px;
+  
+}
+#infoMT{
+  position: absolute; 
+  left:245px; 
+  top:45px;
+  font-size: 16px;
+  color: var(--color4);
+  
+}
+
+/* 左邊吉祥物 */
+
+.leftDiau {
+  width: 800px;
+  position: relative;
+  top: 400px;
+  left: -1000px;
+  transition: 1s;
+}
+
+/* 左邊山區資訊 */
+
+.leftDiau > #mtInfo {
+  position: absolute;
+  top: 210px;
+  left: 770px;
+}
+
+.infoText {
+  position: absolute;
+  left: -300px;
+  width: 200px;
+  margin-left: 100px;
+  text-align: center;
+}
+
+.infoText > img {
+  position: absolute;
+  left: 22px;
+  top: 75px;
+  width: 150px;
+}
+
+/* 右邊吉祥物 */
+
+.rightDiau {
+  width: 900px;
+  position: relative;
+  top: 100px;
+  left: 1800px;
+  transition: 1s;
+  overflow: hidden;
+}
+
+/* 右邊山區資訊 */
+
+.rightDiau > #mtInfoR {
+  position: absolute;
+  top: 100px;
+  left: 238px;
+}
+
+.infoTextR {
+  position: absolute;
+  left: -210px;
+  width: 200px;
+  text-align: center;
+}
+
+.infoTextR > img {
+  position: absolute;
+  left: 22px;
+  top: 75px;
+  width: 150px;
+}
+
+/* 七星山 */
+
+#m1 > img {
+  position: absolute;
+  top: 220px;
+  left: 900px;
+  width: 80px;
+}
+
+/* 設定點我看我更多文字位置 */
+
+#m1 > .pop1 {
+  position: absolute;
+  top: 150px;
+  left: 850px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 加里山 */
+
+#m2 > img {
+  position: absolute;
+  top: 440px;
+  left: 670px;
+  width: 80px;
+}
+
+#m2 > .pop2 {
+  position: absolute;
+  top: 370px;
+  left: 620px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 雪山 */
+
+#m3 > img {
+  position: absolute;
+  top: 510px;
+  left: 790px;
+  width: 80px;
+}
+
+#m3 > .pop3 {
+  position: absolute;
+  top: 440px;
+  left: 740px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 頭嵙山 */
+
+#m4 > img {
+  position: absolute;
+  top: 590px;
+  left: 610px;
+  width: 80px;
+}
+
+#m4 > .pop4 {
+  position: absolute;
+  top: 520px;
+  left: 560px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 白毛山 */
+
+#m5 > img {
+  position: absolute;
+  top: 610px;
+  left: 720px;
+  width: 80px;
+}
+
+#m5 > .pop5 {
+  position: absolute;
+  top: 540px;
+  left: 670px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 合歡山 */
+
+#m6 > img {
+  position: absolute;
+  top: 640px;
+  left: 820px;
+  width: 80px;
+}
+
+#m6 > .pop6 {
+  position: absolute;
+  top: 570px;
+  left: 770px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 奇萊山 */
+
+#m7 > img {
+  position: absolute;
+  top: 710px;
+  left: 790px;
+  width: 80px;
+}
+
+#m7 > .pop7 {
+  position: absolute;
+  top: 640px;
+  left: 740px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 玉山 */
+
+#m8 > img {
+  position: absolute;
+  top: 900px;
+  left: 690px;
+  width: 80px;
+}
+
+#m8 > .pop8 {
+  position: absolute;
+  top: 830px;
+  left: 640px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 大凍山 */
+
+#m9 > img {
+  position: absolute;
+  top: 950px;
+  left: 580px;
+  width: 80px;
+}
+
+#m9 > .pop9 {
+  position: absolute;
+  top: 880px;
+  left: 530px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 尾寮山 */
+
+#m10 > img {
+  position: absolute;
+  top: 1175px;
+  left: 560px;
+  width: 80px;
+}
+
+#m10 > .pop10 {
+  position: absolute;
+  top: 1100px;
+  left: 510px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 嘉明湖 */
+
+#m11 > img {
+  position: absolute;
+  top: 980px;
+  left: 690px;
+  width: 80px;
+}
+
+#m11 > .pop11 {
+  position: absolute;
+  top: 910px;
+  left: 640px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 北大武 */
+
+#m12 > img {
+  position: absolute;
+  top: 1350px;
+  left: 590px;
+  width: 80px;
+}
+
+#m12 > .pop12 {
+  position: absolute;
+  top: 1280px;
+  left: 540px;
+  text-align: center;
+  line-height: 45px;
+  width: 100px;
+  height: 60px;
+  color: var(--color4);
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    50% 75%,
+    0% 75%
+  );
+  background-color: var(--color1);
+  display: none;
+}
+
+/* 回頂部 */
+@keyframes jump {
+  0% {
+    bottom: 45px;
+  }
+  100% {
+    bottom: 60px;
+  }
+}
+
+.bTopimg {
+  position: fixed;
+  bottom: 0;
+  right: 63px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color3);
+}
+
+#to_topimg {
+  position: fixed;
+  width: 100px;
+  bottom: 55px;
+  right: 50px;
+}
+
+#to_topimg:hover {
+  animation: jump 0.5s infinite alternate;
+}
+
+.backToTop {
+  line-height: 2.1em;
+  font-size: 18px;
+  display: block;
+}
+
+.text-margin {
+  margin-top: 36px;
+}

@@ -1,0 +1,195 @@
+/* 文章類別 */
+
+.wrap_R .item {
+    margin-left: 30px;
+    margin-top: 15px;
+}
+
+
+/* 文章類別標題文字位置 */
+
+.wrap_R .item #title {
+    font-size:18px;
+    margin-left: 30px;
+    font-weight: bolder;
+}
+
+#art_type{
+    margin-top: 30px;
+    font-size:18px;
+    margin-left: 30px;
+    font-weight: bolder;
+}
+#article_list2{
+    font-size:18px;
+    height: 30px;
+    margin-left: 25px;
+}
+
+/* 文章ID輸入框位置 */
+
+#article_id {
+    margin-left: 30px;
+}
+
+
+/* 文章標題輸入框位置 */
+
+#article_title {
+    margin-left: 30px;
+}
+
+
+/* 文章內文標題文字 */
+
+#content_title {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding:0px;
+}
+
+
+/* 文章內文輸入欄 */
+
+#article_content {
+    margin-left: 30px;
+    margin-top: -15px;
+}
+
+
+/* 照片預覽區 */
+
+.prepic {
+    position: relative;
+    margin-left: 30px;
+    width: 740px;
+    height: 200px;
+    border: 1px solid black;
+    padding-top:25px;
+}
+.prepic>img{
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+/* 修改文章預覽照片 */
+
+.prepic #pre_img {
+    width: 150px;
+    height: 150px;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+#updateStatus{
+    margin-left: 10px;
+}
+/* The Close Button (x) */
+
+.close1 {
+    position: absolute;
+    left: 130px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close2 {
+    position: absolute;
+    left: 295px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close3 {
+    position: absolute;
+    left: 460px;
+    top: 8px;
+    color: #D8705B;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close1:hover,
+.close2:hover,
+.close3:hover,
+.close1:focus,
+.close2:focus,
+.close3:focus {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+
+/* 選擇檔案按鈕 */
+
+#uplodImg {
+    margin-left: 30px;
+    color: var(--color4);
+    font-size: 16px;
+    width: 200px;
+}
+
+
+/* 上傳檔案按鈕 */
+
+#uplodchk_btn {
+    width: 60px;
+    height: 30px;
+    right: -10px;
+    font-size: 16px;
+    border-radius: 15px;
+    outline: none;
+    border-style: none;
+    color: white;
+    background-color: #D8705B;
+    margin-top: 20px;
+}
+
+#uplodchk_btn:hover {
+    opacity: 0.7;
+}
+
+
+/* 發布文章確認鈕 */
+
+#chk_btn {
+    position: absolute;
+    width: 120px;
+    height: 36pX;
+    right: 120px;
+    bottom: 15px;
+    border-radius: 18px;
+    outline: none;
+    border-style: none;
+    font-size: 16px;
+    color: white;
+    background-color: var(--color4);
+    margin-top: 15px;
+    margin-bottom: 15px;
+} 
+
+#chk_btn:hover {
+    opacity: 0.7;
+} 
+
+/* 一鍵輸入文字小山 */
+
+#speedText {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    margin-top: 18px;
+}
+
+#speedText:hover {
+    cursor: pointer;
+}

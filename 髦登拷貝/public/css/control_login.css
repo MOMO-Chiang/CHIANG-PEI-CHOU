@@ -1,0 +1,51 @@
+@font-face {
+    font-family: "jf-openhuninn-1.1";
+    src: url("font/jf-openhuninn-1.1.ttf") format("truetype");
+    src: url("font/jf-openhuninn-1.1.woff") format("woff");
+    src: url("font/jf-openhuninn-1.1.eot") format("embedded-opentype");
+}
+
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+}
+
+* {
+    font-family: "jf-openhuninn-1.1";
+}
+
+.loginform {
+    width: 700px;
+    height: 350px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 220px;
+    margin-bottom: 145px;
+    border: 2px solid var(--color4);
+    text-align: center;
+    padding-top: 50px;
+    font-size: 1.2rem;
+    color: var(--color4);
+}
+
+.loginform #item {
+    margin-top: 50px;
+}
+
+#chk_btn {
+    margin-top: 40px;
+    outline: none;
+    width: 80px;
+    height: 36px;
+    border-radius: 18px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: var(--color4);
+    border: none;
+}
+
+#chk_btn:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,620 @@
+@font-face {
+    font-family: "jf-openhuninn-1.1";
+    src: url("/font/jf-openhuninn-1.1.ttf") format("truetype");
+    src: url("/font/jf-openhuninn-1.1.woff") format("woff");
+    src: url("/font/jf-openhuninn-1.1.eot") format("embedded-opentype");
+}
+
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+}
+
+* {
+    font-family: "jf-openhuninn-1.1";
+    box-sizing: border-box;
+}
+
+/* 輪播照片size */
+
+.carousel-inner img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+
+/* 輪播按鈕 */
+
+.carousel-indicators li {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-bottom: -5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* 天氣圖卡 */
+
+.weather_card {
+    position: absolute;
+    width: 250px;
+    height: 155px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    top: 35px;
+    left: 60px;
+}
+
+/* 天氣圖卡山區名 */
+
+.weather_card #item {
+    display: flex;
+    width: 250px;
+    margin: 10px;
+    color: var(--color4);
+    font-weight: bold;
+}
+
+#mtName {
+    width: 100px;
+    text-align: center;
+}
+
+/* 天氣圖卡時間 */
+
+.weather_card #item p {
+    padding-top: 2px;
+}
+
+/* 天氣圖卡時/分 */
+
+#cur_time {
+    margin-left: 10px;
+}
+
+/* 天氣圖卡溫度 */
+
+.weather_card #item h1 {
+    font-size: 2.5rem;
+    padding-left: 15px;
+}
+
+/* 天氣圖卡溫度 */
+
+.weather_card #item #T {
+    width: 114px;
+    text-align: center;
+}
+
+/* 天氣圖卡照片 */
+
+.weather_card img {
+    position: absolute;
+    width: 110px;
+    right: 15px;
+    top: 30px;
+}
+
+/* 天氣圖卡氣象 */
+
+#Wx {
+    width: 250px;
+    text-align: center;
+    margin-top: 58px;
+    margin-right: 20px;
+}
+
+/* 加入收藏 */
+
+#favorite {
+    text-align: right;
+    padding-top: 25px;
+    padding-right: 50px;
+}
+
+#f_btn {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    outline: none;
+    border: 0
+}
+
+#f_btn img {
+    padding-bottom: 8px;
+    width: 30px;
+}
+
+.f_content {
+    font-size: 24px;
+    color: var(--color4);
+}
+
+/* 山區主標範圍 */
+
+#mt_name {
+    text-align: center;
+    margin: auto;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+/* 山區主標 */
+
+#mt_name h1 {
+    font-weight: bold;
+    color: var(--color4);
+}
+
+/* 山區氣氛文 */
+
+#mt_name p {
+    font-size: 1.2rem;
+    line-height: 1.75em;
+    margin-top: 30px;
+    text-align: left;
+}
+
+/* 山區欄位資訊 */
+
+/* 山區欄位外頁籤觀設定 */
+
+.nav-tabs .nav-link {
+    width: 320px;
+    /* width: 350; */
+}
+
+.nav-tabs .nav-link img {
+    width: 50px;
+    margin-right: 5px;
+}
+
+.nav-tabs .nav-link {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--color4);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: var(--color3);
+    background-color: var(--color1);
+}
+
+.tab-content {
+    text-align: center;
+    color: var(--color3);
+}
+
+/* 山區基本資料高度圖 */
+
+#mth_image {
+    width: 960px;
+    height: 250px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* 山區基本資料欄位 */
+
+#tableTitle {
+    text-align: center;
+}
+
+#mountain_details {
+    margin-top: 20px;
+    width: 960px;
+    margin: auto;
+    line-height: 40px;
+    text-align: left;
+}
+
+#mountain_details tr, td {
+    padding: 5px;
+    border: 1px solid var(--color4);
+    font-size: 1.2rem;
+}
+
+#mountain_details td:nth-child(odd) {
+    width: 150px;
+    height: 50px;
+    color: var(--color4);
+    background-color: var(--color2);
+}
+
+#trig_point {
+    text-align: left;
+}
+
+/* 山區交通&路線欄位 */
+
+#traffic_form {
+    width: 960px;
+    text-align: left;
+    margin: auto;
+    margin-top: 80px;
+}
+
+#traffic_form tr, td {
+    border: 1px solid var(--color4);
+}
+
+#traffic_form td:nth-child(odd) {
+    width: 150px;
+    height: 50px;
+    color: var(--color4);
+    background-color: var(--color2);
+}
+
+#by_car {
+    text-align: left;
+}
+
+#by_masstransit {
+    text-align: left;
+}
+
+/* 生態區 */
+
+#wildlife {
+    width: 960px;
+    margin: auto;
+}
+
+/* 生態區標頭 */
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgba(255, 255, 255, 0);
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+#wildlife h3 {
+    margin-top: 20px;
+    color: var(--color4);
+}
+
+#wildlife span{
+    font-weight: 500;
+}
+#wildlife #item {
+    display: flex;
+    padding-left: 30px;
+}
+
+#wildlife #item .card {
+    width: 280px;
+    height: 280px;
+    margin: 10px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    cursor: pointer;
+    border: 2px solid var(--color2);
+    border-radius: 10px;
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    position: absolute;
+    backface-visibility: hidden;
+    object-fit: cover;
+   
+}
+
+/* 卡片背面阿貂位置 */
+
+.back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px 100px 20px 20px;
+    margin: 10px;
+    position: absolute;
+    backface-visibility: hidden;   
+}
+
+/* 卡片背面動植物名位置 */
+
+.back-face>#animal_name {
+    font-weight: bold;
+    font-size: 1rem;
+    padding-left: 60px;
+    
+}
+
+.front-face {
+    transform: rotateY(180deg);
+
+}
+
+/* 生態區卡片照片
+
+#wildlife #item .card img {
+    width: 280px;
+    height: 280px;
+} */
+
+/* 評論區 */
+
+#messages {
+    width: 960px;
+    margin: auto;
+    margin-top: 30px;
+}
+
+#msgTitle {
+    width: 960px;
+    height: 36px;
+    text-align: center;
+    margin: auto;
+    border: 1px solid var(--color3);
+    border-bottom: none;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: var(--color4);
+    background-color: var(--color1);
+}
+
+.content {
+    margin: auto;
+    width: 960px;
+    height: 200px;
+    border: 1px solid var(--color3);
+}
+
+.content #item1, #item2 {
+    display: flex;
+}
+
+/* 評論區title */
+
+.content #item1 {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.content #item1 h3 {
+    color: var(--color4);
+}
+
+/* 評論區留言box */
+
+.content #item2 {
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+/* 評論區評分圖片 */
+
+.content img {
+    width: 40px;
+    margin-left: 16px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+/* 評論區評分分數 */
+
+#cnt {
+    color: var(--color4);
+    font-size: 1.6rem;
+    margin-top: -5px;
+    margin-left: 35px;
+}
+
+#adj {
+    color: var(--color4);
+    font-size: 1.6rem;
+    margin-top: -6px;
+    margin-left: 35px;
+}
+
+/* 評論區按鈕 */
+
+button {
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 80px;
+    height: 36px;
+    font-size: 1.2rem;
+    border-radius: 18px;
+    border-style: none;
+    color: white;
+}
+
+/* 評論區取消按鈕 */
+
+#rest_btn {
+    opacity: 0.7;
+    outline: none;
+    color: var(--color4);
+    background-color: var(--color1);
+}
+
+/* 評論區確認按鈕 */
+
+#chk_btn {
+    margin-right: 10px;
+    outline: none;
+    background-color: var(--color4);
+}
+
+/* 評論區按鈕 滑過按鈕 */
+
+#rest_btn:hover {
+    opacity: 1;
+    background-color: var(--color1);
+}
+
+#chk_btn:hover {
+    opacity: 0.8;
+}
+
+/* 評論區按鈕 按下按鈕 */
+
+/* #rest_btn:active {
+    background-color: royalblue;
+}
+
+#chk_btn:active {
+    background-color: royalblue;
+} */
+
+/* 留言顯示區塊 */
+
+#memberMsg {
+    width: 960px;
+    height: 480px;
+    margin: auto;
+    border: 1px solid var(--color3);
+    overflow: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#memberMsg::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar外觀&底色  */
+
+#memberMsg::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: var(--color3);
+}
+
+/* scrollbar裡頭滑桿外觀&底色 */
+
+#memberMsg::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--color1);
+}
+
+#memberMsg .wrap {
+    display: flex;
+    margin-left: 40px;
+}
+
+/* 留言發佈區大頭 */
+
+#headimg {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 留言發佈區姓名內容 */
+
+#memberMsg h3 {
+    margin-top: 30px;
+    margin-left: 20px;
+    color: var(--color3);
+}
+
+#memberMsg h5 {
+    width: 520px;
+    margin-left: 20px;
+}
+
+/* 留言發佈區評級圖片 */
+
+#memberMsg #item:nth-of-type(3) {
+    margin-left: 5px;
+    margin-top: 45px;
+}
+
+#scoreimg {
+    width: 35px;
+    margin-left: 10px;
+}
+
+/* 留言發佈區文字圖片 */
+
+#memberMsg p {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 520px;
+}
+
+/* 留言發佈區時間戳記 */
+
+#item #msg_time {
+    width: 240px;
+    text-align: left;
+    margin-left: 10px;
+}
+
+/* 回top的圖片 */
+
+.topimg {
+    position: fixed;
+    bottom: 0;
+    right: 63px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color2);
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+#to_topimg {
+    position: fixed;
+    width: 100px;
+    bottom: 55px;
+    right: 50px;
+}
+
+#to_topimg:hover {
+    cursor: pointer;
+    animation: jump .5s infinite alternate;
+}
+
+#back_toptext {
+    color: var(--color3);
+}
+
+@keyframes jump {
+    0% {
+        bottom: 45px;
+    }
+    100% {
+        bottom: 60px;
+    }
+}
+
+/* sweetalert ok文字位置 */
+
+.swal2-styled.swal2-confirm {
+    border: 0;
+    border-radius: 0.25em;
+    background: initial;
+    background-color: #2778c4;
+    color: #fff;
+    font-size: 1.0625em;
+    line-height: 1px;
+}

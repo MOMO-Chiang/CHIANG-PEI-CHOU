@@ -1,0 +1,595 @@
+@font-face {
+  font-family: "jf-openhuninn-1.1";
+  src: url("font/jf-openhuninn-1.1.woff") format("woff"),
+    url("font/jf-openhuninn-1.1.ttf") format("truetype"),
+    url("font/jf-openhuninn-1.1.eot") format("embedded-opentype");
+}
+
+:root {
+  --color1: #e2e1d1;
+  --color2: #d2ddd3;
+  --color3: #90ab8d;
+  --color4: #647f68;
+}
+
+* {
+  /* width: 1680px; */
+  /* background-color:var(--color2); */
+  margin: 0;
+  font-family: "jf-openhuninn-1.1";
+}
+
+body {
+  background-color: var(--color2);
+}
+
+/* 會員 */
+.logInBtn {
+  width: 150px;
+  height: 45px;
+  text-align: center;
+  border: none;
+  background-color: var(--color1);
+  margin: 0;
+  border-radius: 0;
+  text-decoration: none;
+  color: var(--color4);
+  line-height: 45px;
+  font-size: 20px;
+  /* outline: none; */
+}
+
+#drop > a :hover {
+  background-color: var(--color3);
+  color: white;
+}
+
+.dis {
+  display: none;
+}
+
+#drop {
+  z-index: 10;
+  line-height: 0;
+}
+
+#arrow {
+  margin-left: 10px;
+}
+
+#arrow:hover {
+  cursor: pointer;
+}
+.aa:hover {
+  background-color: var(--color3);
+  color: white;
+  text-decoration: none;
+}
+
+/* 漢堡 */
+main > #text {
+  width: 430px;
+  height: 600px;
+  margin-top: -120px;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* position: absolute; */
+  /* right: 0; */
+}
+
+main {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.con,
+.special-con {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bar {
+  display: block;
+  height: 5px;
+  width: 40px;
+  background: white;
+  margin: 10px auto;
+}
+
+/* 漢堡動畫 */
+.con {
+  width: auto;
+  margin: 0 auto;
+  margin-right: 20px;
+  margin-top: 20px;
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.middle {
+  margin: 0 auto;
+}
+
+.bar {
+  -webkit-transition: all 0.7s ease;
+  -moz-transition: all 0.7s ease;
+  -ms-transition: all 0.7s ease;
+  -o-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+}
+
+.top {
+  -webkit-transform: translateY(15px) rotateZ(45deg);
+  -moz-transform: translateY(15px) rotateZ(45deg);
+  -ms-transform: translateY(15px) rotateZ(45deg);
+  -o-transform: translateY(15px) rotateZ(45deg);
+  transform: translateY(15px) rotateZ(45deg);
+}
+
+.bottom {
+  -webkit-transform: translateY(-15px) rotateZ(-45deg);
+  -moz-transform: translateY(-15px) rotateZ(-45deg);
+  -ms-transform: translateY(-15px) rotateZ(-45deg);
+  -o-transform: translateY(-15px) rotateZ(-45deg);
+  transform: translateY(-15px) rotateZ(-45deg);
+}
+
+.middle {
+  width: 0;
+}
+
+.item {
+  font-size: 28px;
+  width: 430px;
+  text-align: center;
+  color: white;
+  height: 60px;
+  line-height: 60px;
+}
+
+.item img {
+  height: 28px;
+  margin-right: 10px;
+  display: none;
+}
+
+.item:hover img {
+  display: inline-block;
+}
+
+.item:hover {
+  background-color: #4d6d58;
+}
+
+.text {
+  display: none;
+}
+
+.cart {
+  display: none;
+}
+
+.con1 {
+  margin-left: 350px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}
+
+/* top */
+.topimg {
+  width: 100%;
+  height: 900px;
+  background-image: url("../img/homepage_img/top_homepage.jpg");
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+#logo {
+  width: 250px;
+  margin-bottom: 200px;
+  display: flex;
+}
+
+/* 雲動畫 */
+.cloud {
+  position: absolute;
+  right: 400px;
+}
+
+#cloud_1 {
+  position: relative;
+  width: 100px;
+  margin-bottom: -160px;
+  animation: mymove2 3.5s infinite;
+  animation-direction: alternate;
+  /* display: flex; */
+}
+
+#cloud_2 {
+  position: relative;
+  width: 250px;
+  margin-bottom: -150px;
+  animation: mymove 6s infinite;
+  animation-direction: alternate;
+  /* animation-delay:-2s; */
+  /* display: flex; */
+}
+
+@keyframes mymove {
+  from {
+    left: 100px;
+  }
+  to {
+    left: 300px;
+  }
+}
+
+.cloud2 {
+  position: absolute;
+  left: 200px;
+  top: 100px;
+}
+
+#cloud_3 {
+  position: relative;
+  width: 300px;
+  top: 100px;
+  animation: mymove2 5s infinite;
+  animation-direction: alternate;
+  /* display: flex; */
+}
+
+#cloud_4 {
+  position: relative;
+  width: 150px;
+  margin-bottom: 100px;
+  animation: mymove 4s infinite;
+  animation-direction: alternate;
+  /* display: flex; */
+}
+
+@keyframes mymove2 {
+  from {
+    right: 0px;
+  }
+  to {
+    right: 300px;
+  }
+}
+
+.bodyimg {
+  /* width: 100vw; */
+  height: 2111px;
+  background-image: url("../img/homepage_img/body_homepage.png");
+  background-repeat: no-repeat;
+}
+
+/* 路牌類別 */
+/* 打字動畫 */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 180px;
+  }
+}
+
+#li_1 {
+  width: 180px;
+  margin-left: 370px;
+  margin-top: 60px;
+  font-size: 24px;
+  z-index: 1;
+  /* overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(5,end) infinite; */
+}
+
+#li_1:after {
+  content: "";
+  animation: abomination1 3s infinite;
+}
+
+@keyframes abomination1 {
+  0% {
+    content: "";
+  }
+  20% {
+    content: "你";
+  }
+  40% {
+    content: "你迷";
+  }
+  60% {
+    content: "你迷路";
+  }
+  80% {
+    content: "你迷路了";
+  }
+  90% {
+    content: "你迷路了嗎";
+  }
+  100% {
+    content: "你迷路了嗎？";
+  }
+}
+
+.imgsvg1_2 ul li {
+  position: absolute;
+  top: 860px;
+  left: 150px;
+  display: inline;
+}
+
+/* 所有路標大小 */
+.imgsvg1,
+.imgsvg2,
+.imgsvg3,
+.imgsvg4 {
+  width: 240px;
+  position: absolute;
+}
+
+.imgsvg1 {
+  top: 1030px;
+  left: 615px;
+  transform: rotate(5deg);
+  animation: shake 1.5s ease-in-out infinite alternate;
+}
+
+/* 路標動畫 */
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(5deg);
+  }
+}
+@keyframes shake {
+  50% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(5deg);
+  }
+}
+
+.imgsvg1_1 {
+  width: 420px;
+  position: absolute;
+  top: 980px;
+  left: 910px;
+}
+
+.imgsvg2_2 {
+  width: 350px;
+  position: absolute;
+  top: 1350px;
+  left: 350px;
+}
+
+.imgsvg2 {
+  top: 1430px;
+  left: 750px;
+  transform: rotate(5deg);
+  animation: shake 2s ease-in-out infinite alternate;
+}
+
+.imgsvg3_3 {
+  width: 380px;
+  position: absolute;
+  top: 1750px;
+  left: 700px;
+}
+
+.imgsvg3 {
+  top: 1980px;
+  left: 420px;
+  transform: rotate(5deg);
+  animation: shake 1.5s ease-in-out infinite alternate;
+}
+
+.imgsvg4_4 {
+  width: 420px;
+  position: absolute;
+  top: 2350px;
+  left: 490px;
+}
+
+.imgsvg4 {
+  top: 2500px;
+  left: 980px;
+  transform: rotate(5deg);
+  animation: shake 2s ease-in-out infinite alternate;
+}
+
+/* 圖面動畫 */
+@-webkit-keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes bob-on-hover {
+  0% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+  50% {
+    -webkit-transform: translateY(-4px);
+    transform: translateY(-4px);
+  }
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+@-webkit-keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+@keyframes bob-on-hover-float {
+  100% {
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+  }
+}
+
+.imgsvg2_2,
+.imgsvg1_1,
+.imgsvg3_3,
+.imgsvg4_4 {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+}
+
+.imgsvg2_2:hover,
+.imgsvg2_2:focus,
+.imgsvg2_2:active,
+.imgsvg1_1:hover,
+.imgsvg1_1:focus,
+.imgsvg1_1:active,
+.imgsvg3_3:hover,
+.imgsvg3_3:focus,
+.imgsvg3_3:active,
+.imgsvg4_4:hover,
+.imgsvg4_4:focus,
+.imgsvg4_4:active {
+  -webkit-animation-name: bob-on-hover-float, bob-on-hover;
+  animation-name: bob-on-hover-float, bob-on-hover;
+  -webkit-animation-duration: 0.3s, 1.5s;
+  animation-duration: 0.3s, 1s;
+  -webkit-animation-delay: 0s, 0.3s;
+  animation-delay: 0s, 0.3s;
+  -webkit-animation-timing-function: ease-out, ease-in-out;
+  animation-timing-function: ease-out, ease-in-out;
+  -webkit-animation-iteration-count: 1, infinite;
+  animation-iteration-count: 1, infinite;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-direction: normal, alternate;
+  animation-direction: normal, alternate;
+}
+
+/* footer */
+.foot {
+  width: 100%;
+  height: 160px;
+  text-align: center;
+  margin: auto;
+}
+
+.footertext {
+  font-size: 14px;
+  color: white;
+  margin-top: -38px;
+  margin-bottom: 0px;
+}
+
+
+
+/* 文字動畫 */
+#i1 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.2s;
+}
+
+#i2 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.4s;
+}
+
+#i3 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.6s;
+}
+
+#i4 {
+  width: 430px;
+  height: 60px;
+  position: absolute;
+  animation-name: slide;
+  animation-duration: 0.8s;
+}
+
+@keyframes slide {
+  from {
+    right: -300px;
+  }
+
+  to {
+    right: 0px;
+  }
+}
+
+
+/* 回頂部 */
+@keyframes jump {
+  0% {
+      bottom: 45px;
+  }
+  100% {
+      bottom: 60px;
+  }
+}
+
+.bTopimg {
+  position: fixed;
+  bottom: 0;
+  right: 63px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color3);
+}
+
+#to_topimg {
+  position: fixed;
+  width: 100px;
+  bottom: 40px;
+  right: 50px;
+}
+
+#to_topimg:hover {
+  animation: jump .5s infinite alternate;
+}
+p {
+  line-height: 2.1em;
+  font-size: 18px;
+  display: block;
+}
+
+.text-margin {
+  margin-top: 36px;
+}

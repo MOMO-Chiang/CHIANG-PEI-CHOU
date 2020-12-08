@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>髦登｜新手攻略</title>
+    <link rel="stylesheet" href="/css/new_1.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <!------ header ------ -->
+    <%- include header.ejs %>
+        <!----------------- body ----------------->
+        <div style="width: 1135px;margin: auto;margin-top: 36px;">
+            <!-- left -->
+            <div style="float: left;width: 744px;">
+                <div style="display: flex;width: 744px;height: 36px;">
+                    <div class="category" href="" id="all">全部</div>
+                    <div class="category" href="" id="a3">裝備</div>
+                    <div class="category" href="" id="a4">食物</div>
+                    <div class="category" href="" id="a5">救難</div>
+                    <div class="category" href="" id="a1">申請</div>
+                    <div class="category" href="" id="a2">體能</div>
+                    <div class="category" style="margin-right: 0;" href="" id="a6">環境</div>
+                </div>
+                <div style="width:744px;height: 569px;margin-top: 35px;">
+                    <div class="card-container">
+                        <% data.forEach((item)=>{%>
+                            <div class="card a<%= item.category_id%>">
+                                <a href="article_p1?aid=<%=item.article_id%>">  <img src="../img/articles_img/<%=item.article_img%>"></a>
+                                <div class="card-text">
+                                    <h4>
+                                        <a href="article_p1?aid=<%=item.article_id%>">
+                                            <%= item.title%>
+                                        </a>
+                                    </h4>
+                                    <h5>
+                                        <%= item.content%>
+                                    </h5>
+                                    <pre><%= item.add_date%>      <%= item.cnt%>人收藏</pre>
+                                </div>
+                            </div>
+                            <% })%>
+                    </div>
+                </div>
+            </div>
+            <!-- right -->
+            <div style="float: right;width: 360px;">
+                <div style="background-color: white;">
+                    <img src="../img/articles_img/hi.svg" style="width: 360px;height: 132px;">
+                    <div class="range">
+                        <div><img src="../img/articles_img/star1.svg" width="43px"></div>
+                        <div class="abox">
+                            <a href="article_p1?aid=<%= rank1.article_id%>">
+                                <%= rank1.title%>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="range">
+                        <div><img src="../img/articles_img/star2.svg" width="43px"></div>
+                        <div class="abox">
+                            <a href="article_p1?aid=<%= rank2.article_id%>">
+                                <%= rank2.title%>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="range">
+                        <div><img src="../img/articles_img/star3.svg" width="43px"></div>
+                        <div class="abox">
+                            <a href="article_p1?aid=<%= rank3.article_id%>">
+                                <%= rank3.title%>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="range" style="border: none;">
+                        <div><img src="../img/articles_img/star4.svg" width="43px"></div>
+                        <div class="abox">
+                            <a href="article_p1?aid=<%= rank4.article_id%>">
+                                <%= rank4.title%>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <img id="word" src="../img/articles_img/asset3.svg">
+            <img id="game" src="../img/articles_img/asset1.svg">
+            <div style="position: absolute;margin-left: 995px;margin-top: 500px;">
+                <p style="font-size:20px;margin-bottom: 5px;">測驗小遊戲</p>
+                <div class="col-button"><a href="/game">點我測驗</a></div>
+            </div>
+
+        </div>
+
+        </div>
+        </div>
+        <!------ footer ------->
+        <%- include footer.ejs %>
+            <script>
+                $(".category").on("click", function() {
+                    $(this).addClass("cha").siblings().removeClass("cha");
+                    var a = $(this).attr("id");
+                    if (a == "all") {
+                        $(".card").show()
+                    } else {
+                        $(`.${a}`).siblings().hide();
+                        $(`.${a}`).show();
+                    }
+
+                });
+
+                var b = localStorage.getItem("cate");
+                $(`#${b}`).addClass("cha");
+                $(`.${b}`).siblings().hide();
+                $(`.${b}`).show()
+
+            </script>
+</body>
+
+</html>

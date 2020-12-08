@@ -1,0 +1,113 @@
+/* ver.11-28 */
+:root {
+    --color1: #E2E1D1;
+    --color2: #D2DDD3;
+    --color3: #90AB8D;
+    --color4: #647F68;
+    --color5: #D3EDF9;
+    --color6: #d8705b;
+}
+
+@font-face {
+    font-family: "jf-openhuninn-1.1";
+    src: url(../font/jf-openhuninn-1.1.woff)format("woff"),
+         url(../font/jf-openhuninn-1.1.ttf)format("truetype"),
+         url(../font/jf-openhuninn-1.1.eot)format("embedded-opentype");
+}
+
+* {
+    font-family:"jf-openhuninn-1.1";
+    font-size: 16px;
+    color: var(--color4);
+}
+
+body {
+    width: 100%;
+}
+
+.custom-container-width {
+    max-width: 1440px;
+}
+
+#mainImg {
+    width: 450px;
+    height: 450px;
+    padding: 5px;
+    border: 1px solid var(--color4);
+    object-fit: cover;
+}
+
+.preImg {
+    width: 133px;
+    height: 133px;
+    border: 1px solid var(--color4);
+    margin: 25px 10px;
+    padding: 5px;
+    object-fit: cover;
+}
+
+.product_qty {
+    width: 130px;
+    display: flex;
+    border: 1px solid var(--color2);
+    border-radius: 5px;
+    margin-bottom: 60px;
+}
+
+.product_qty>button {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    outline: none;
+    background-color: var(--color2);
+}
+
+.product_qty>input {
+    width: 50px;
+    height: 40px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+#addToCart {
+    width: 140px;
+    height: 38px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background-color: var(--color4);
+    margin: 0 20px 0 15px;
+    /* margin-top: -40px; */
+}
+
+/* 加入收藏 */
+#favorite {
+    text-align: left;
+    /* margin-top: -40px; */
+}
+
+#f_btn {
+    width: 38px;
+    height: 38px;
+    background-color: white;
+    outline: none;
+    border: none;
+}
+
+#f_btn img {
+    width: 30px;
+}
+
+.f_content {
+    font-size: 17px;
+}
+
+/* 商品描述 */
+.product_desc {
+    /* margin-left: 90px; */
+    color: var(--color4);
+    text-align: left;
+}
+
